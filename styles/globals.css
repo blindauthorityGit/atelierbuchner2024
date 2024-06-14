@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -16,14 +17,23 @@
   }
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+[data-scroll-container] {
+  overflow: hidden;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* color: rgb(var(--foreground-rgb)); */
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
