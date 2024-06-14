@@ -8,23 +8,32 @@ export const useLocomotiveScroll = (ref) => {
     useEffect(() => {
         if (typeof window === "undefined" || !ref.current) return;
 
-        let scroll;
-        import("locomotive-scroll").then((LocomotiveScroll) => {
-            scroll = new LocomotiveScroll.default({
+        const loadScroll = async () => {
+            const LocomotiveScroll = (await import("locomotive-scroll")).default;
+            const scroll = new LocomotiveScroll({
                 el: ref.current,
                 smooth: true,
+                lerp: 0.1,
+                multiplier: 1,
+                class: "is-inview",
+                offset: [0, 0],
+                reloadOnContextChange: true,
                 smartphone: { smooth: true },
                 tablet: { smooth: true },
             });
 
             scroll.on("scroll", (args) => {
+                console.log("scrollY:", args.scroll.y); // Add console log here
+
                 scrollY.set(args.scroll.y);
             });
-        });
 
-        return () => {
-            if (scroll) scroll.destroy();
+            return () => {
+                if (scroll) scroll.destroy();
+            };
         };
+
+        loadScroll();
     }, [ref, scrollY]);
 
     return { scrollY };

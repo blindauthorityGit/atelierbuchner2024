@@ -26,7 +26,7 @@ export default function Home() {
         <>
             {" "}
             <DecorativeElement scrollY={scrollY} startPositions={startPositions} endPositions={endPositions} />
-            <MainContainer ref={containerRef}>
+            <MainContainer ref={containerRef} data-scroll-container>
                 <MainHeroSection />
                 <MainHeroSection />
                 {/* Add more sections here */}
