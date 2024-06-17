@@ -12,8 +12,6 @@ import CoursesOverview from "../sections/coursesOverview";
 import MainContainer from "../components/layout/mainContainer";
 //HOOKS
 import { useLocomotiveScroll } from "../hooks/useLocomotiveScroll";
-// CONTEXTS
-import { ScrollProvider } from "../contexts/ScrollContext";
 
 export default function Home() {
     const containerRef = useRef(null);
