@@ -13,10 +13,7 @@ const menuConfig = {
         { href: "/services", text: "Services" },
         { href: "/contact", text: "Contact" },
     ],
-    ctas: [
-        { text: "Sign Up", onClick: () => alert("Sign Up Clicked") },
-        { text: "Login", onClick: () => alert("Login Clicked") },
-    ],
+    ctas: [{ text: "Login", onClick: () => alert("Login Clicked") }],
     burgerMenu: {
         icon: Burger.src,
     },

@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 import DecorativeElement from "../components/deko/dekoBlock";
 //SECTIONS
 import MainHeroSection from "../sections/mainHero";
+import CoursesOverview from "../sections/coursesOverview";
 //LAYOUT
 import MainContainer from "../components/layout/mainContainer";
 //HOOKS
@@ -28,7 +29,8 @@ export default function Home() {
             <DecorativeElement scrollY={scrollY} startPositions={startPositions} endPositions={endPositions} />
             <MainContainer ref={containerRef} data-scroll-container>
                 <MainHeroSection />
-                <MainHeroSection />
+                <CoursesOverview />
+                <CoursesOverview />
                 {/* Add more sections here */}
             </MainContainer>
         </>

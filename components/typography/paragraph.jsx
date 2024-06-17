@@ -9,7 +9,7 @@ const P = ({ children, klasse, style, htmlContent, isHtml = false, ...props }) =
     return (
         <p
             style={style}
-            className={`text-sm text-darkGrey sm:text-base md:text-lg font-body font-[500]  xl:leading-relaxed lg:text-base xl:text-sm 2xl:text-base 3xl:text-[1.25rem]  ${klasse}`}
+            className={`text-sm text-darkGrey sm:text-base md:text-lg font-body font-[500]  xl:leading-relaxed lg:text-base xl:text-sm 2xl:text-base 3xl:text-[1rem]  ${klasse}`}
             {...props} // Spread additional props here
         >
             {isHtml ? <span dangerouslySetInnerHTML={createMarkup(htmlContent)} /> : htmlContent}

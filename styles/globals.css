@@ -36,6 +36,19 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
+ [data-scroll] {
+  transition: transform 0.8s ease-out;
+}
+
+[data-scroll-section-inview] {
+  transform: scale(1.2) rotate(15deg);
+} 
+
+.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -1,16 +1,16 @@
 import React from "react";
 import { CoverImage } from "../images";
 
-const HeroElement = ({ image, mobileImage }) => {
+const HeroElement = ({ image, mobileImage, aspectRatio }) => {
     return (
         <div>
             <CoverImage
-                src={Hero.src}
-                mobileSrc={Hero.src}
+                src={image.src}
+                mobileSrc={mobileImage.src}
                 alt="Cover Background"
-                klasse={"absolute top-[8.42svh]"}
-                style={{ aspectRatio: "0.93/1" }}
-                className="w-full "
+                klasse={"absolute "}
+                // style={{ }}
+                className="w-full !aspect-[0.72/1] lg:!aspect-[0.93/1]"
             />
         </div>
     );
