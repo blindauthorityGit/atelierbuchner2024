@@ -11,8 +11,9 @@ export default function App({ Component, pageProps }) {
                 ctas={MenuConfig.ctas}
                 burgerMenu={MenuConfig.burgerMenu}
             />
-
-            <Component {...pageProps} />
+            <div data-scroll-container>
+                <Component {...pageProps} />
+            </div>
         </>
     );
 }

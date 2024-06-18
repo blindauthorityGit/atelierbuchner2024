@@ -8,6 +8,9 @@ import DecorativeElement from "../components/deko/dekoBlock";
 //SECTIONS
 import MainHeroSection from "../sections/mainHero";
 import CoursesOverview from "../sections/coursesOverview";
+import BioOverview from "../sections/bioOverview";
+import TestSection from "../sections/test";
+
 //LAYOUT
 import MainContainer from "../components/layout/mainContainer";
 //HOOKS
@@ -17,6 +20,11 @@ export default function Home() {
     const containerRef = useRef(null);
     const { scrollY } = useLocomotiveScroll(containerRef);
 
+    const handleScroll = (callback) => {
+        if (!containerRef.current) return;
+        containerRef.current.addEventListener("scroll", callback);
+    };
+
     // Define start and end positions for the decorative element
     const startPositions = { x: "0%", y: "0%", scale: 1 };
     const endPositions = { x: "80%", y: "80%", scale: 2 };
@@ -25,10 +33,14 @@ export default function Home() {
         <>
             {" "}
             <DecorativeElement scrollY={scrollY} startPositions={startPositions} endPositions={endPositions} />
-            <MainContainer ref={containerRef} data-scroll-container>
+            <MainContainer ref={containerRef}>
                 <MainHeroSection />
+                <div className="block h-64"></div>
                 <CoursesOverview />
                 <CoursesOverview />
+                {/* <TestSection /> */}
+
+                {/* <BioOverview scrollY={scrollY} /> */}
                 {/* Add more sections here */}
             </MainContainer>
         </>

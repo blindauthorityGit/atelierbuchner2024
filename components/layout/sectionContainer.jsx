@@ -1,9 +1,15 @@
-const SectionContainer = ({ children, klasse, fullHeight, ...props }) => {
+import React, { forwardRef } from "react";
+
+const SectionContainer = forwardRef(({ children, klasse, fullHeight, ...props }, ref) => {
     return (
-        <section className={`grid grid-cols-12 relative ${klasse} ${fullHeight ? "min-h-[100svh]" : null}`} {...props}>
+        <section
+            ref={ref}
+            className={`grid grid-cols-12 relative ${klasse} ${fullHeight ? "min-h-[100svh]" : ""}`}
+            {...props}
+        >
             {children}
         </section>
     );
-};
+});
 
 export default SectionContainer;

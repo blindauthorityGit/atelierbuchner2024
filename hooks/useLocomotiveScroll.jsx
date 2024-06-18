@@ -10,6 +10,12 @@ export const useLocomotiveScroll = (ref) => {
 
         const loadScroll = async () => {
             const LocomotiveScroll = (await import("locomotive-scroll")).default;
+
+            if (!ref.current) {
+                console.error("No scroll container found");
+                return;
+            }
+
             const scroll = new LocomotiveScroll({
                 el: ref.current,
                 smooth: true,
@@ -22,9 +28,10 @@ export const useLocomotiveScroll = (ref) => {
                 tablet: { smooth: true },
             });
 
-            scroll.on("scroll", (args) => {
-                console.log("scrollY:", args.scroll.y); // Add console log here
+            console.log("Locomotive Scroll initialized", scroll);
 
+            scroll.on("scroll", (args) => {
+                // console.log("Scroll event", args);
                 scrollY.set(args.scroll.y);
             });
 
