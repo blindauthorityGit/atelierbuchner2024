@@ -17,30 +17,30 @@ import MainContainer from "../components/layout/mainContainer";
 import { useLocomotiveScroll } from "../hooks/useLocomotiveScroll";
 
 export default function Home() {
-    const containerRef = useRef(null);
-    const { scrollY } = useLocomotiveScroll(containerRef);
+    // const containerRef = useRef(null);
+    // const { scrollY } = useLocomotiveScroll(containerRef);
 
-    const handleScroll = (callback) => {
-        if (!containerRef.current) return;
-        containerRef.current.addEventListener("scroll", callback);
-    };
+    // const handleScroll = (callback) => {
+    //     if (!containerRef.current) return;
+    //     containerRef.current.addEventListener("scroll", callback);
+    // };
 
-    // Define start and end positions for the decorative element
-    const startPositions = { x: "0%", y: "0%", scale: 1 };
-    const endPositions = { x: "80%", y: "80%", scale: 2 };
+    // // Define start and end positions for the decorative element
+    // const startPositions = { x: "0%", y: "0%", scale: 1 };
+    // const endPositions = { x: "80%", y: "80%", scale: 2 };
 
     return (
         <>
             {" "}
-            <DecorativeElement scrollY={scrollY} startPositions={startPositions} endPositions={endPositions} />
-            <MainContainer ref={containerRef}>
+            {/* <DecorativeElement scrollY={scrollY} startPositions={startPositions} endPositions={endPositions} /> */}
+            <MainContainer>
                 <MainHeroSection />
                 <div className="block h-64"></div>
                 <CoursesOverview />
                 <CoursesOverview />
                 {/* <TestSection /> */}
 
-                {/* <BioOverview scrollY={scrollY} /> */}
+                <BioOverview />
                 {/* Add more sections here */}
             </MainContainer>
         </>

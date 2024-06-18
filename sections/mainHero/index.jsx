@@ -126,13 +126,13 @@ const MainHeroSection = () => {
                         style={{ aspectRatio: "0.93/1" }}
                         className="w-full relative top-[8.42svh]"
                     /> */}
-                </div>
+                </div>{" "}
+                <div
+                    data-scroll
+                    data-scroll-speed="7"
+                    className="bg-primaryColor-200 absolute w-full 3xl:w-[13.64svw] h-[25svh] 3xl:h-[59.9svh] 3xl:left-[-2.97svw] top-[25svh] 3xl:top-[19svh]"
+                ></div>
             </SectionContainer>
-            <div
-                data-scroll
-                data-scroll-speed="7"
-                className="bg-primaryColor-200 absolute w-full 3xl:w-[13.64svw] h-[25svh] 3xl:h-[59.9svh] 3xl:left-[-2.97svw] top-[25svh] 3xl:top-[19svh]"
-            ></div>
         </>
     );
 };

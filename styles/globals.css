@@ -50,7 +50,7 @@ body {
 }
 
 .is-inview {
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
   opacity: 1;
   transform: translateY(0);
 }

@@ -1,9 +1,9 @@
 // hooks/useLocomotiveScroll.js
 import { useEffect } from "react";
-import { useMotionValue } from "framer-motion";
+import { useInitializeScroll } from "./useScrollStore";
 
 export const useLocomotiveScroll = (ref) => {
-    const scrollY = useMotionValue(0);
+    const scrollY = useInitializeScroll();
 
     useEffect(() => {
         if (typeof window === "undefined" || !ref.current) return;
@@ -31,7 +31,6 @@ export const useLocomotiveScroll = (ref) => {
             console.log("Locomotive Scroll initialized", scroll);
 
             scroll.on("scroll", (args) => {
-                // console.log("Scroll event", args);
                 scrollY.set(args.scroll.y);
             });
 
