@@ -3,21 +3,51 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const Menu = ({ logo, links, ctas, burgerMenu, ...props }) => {
+//STORE
+import useStore from "../../store/store"; // Import the Zustand store
+
+const Menu = ({ logo, logoWhite, links, ctas, burgerMenu, ...props }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
+    const isDark = useStore((state) => state.isDark);
+
+    // Animation variants for light and dark modes
+    const variants = {
+        light: {
+            backgroundColor: "#edece7", // Light mode background color
+            color: "#000000", // Light mode text color
+            transition: { duration: 0.5 },
+        },
+        dark: {
+            backgroundColor: "#393836", // Dark mode background color
+            color: "#f7f7f5", // Dark mode text color
+            transition: { duration: 0.5 },
+        },
+    };
+
     return (
-        <nav className="w-full px-4 py-2 bg-white fixed z-40 font-body text-darkGrey" {...props}>
+        <motion.nav
+            className="w-full px-4 py-2 fixed z-40 font-body"
+            {...props}
+            initial={isDark ? "dark" : "light"} // Initial animation state
+            animate={isDark ? "dark" : "light"} // Animate based on isDark state
+            variants={variants} // Animation variants
+        >
+            {" "}
             <div className="container mx-auto flex items-center justify-between">
                 {/* Left section */}
                 <div className="flex items-center lg:flex-1">
                     <Link href="/" passHref>
                         <div className="flex items-center cursor-pointer">
-                            <img src={logo.src} alt={logo.alt} className="w-8 h-8 lg:h-14 lg:w-14 mr-3" />
+                            <img
+                                src={isDark ? logoWhite.src : logo.src}
+                                alt={logo.alt}
+                                className="w-8 h-8 lg:h-14 lg:w-14 mr-3"
+                            />
                         </div>
                     </Link>
                 </div>
@@ -71,7 +101,7 @@ const Menu = ({ logo, links, ctas, burgerMenu, ...props }) => {
                     ))}
                 </div>
             )}
-        </nav>
+        </motion.nav>
     );
 };
 

@@ -1,6 +1,9 @@
-// hooks/useLocomotiveScroll.js
 import { useEffect } from "react";
 import { useInitializeScroll } from "./useScrollStore";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const useLocomotiveScroll = (ref) => {
     const scrollY = useInitializeScroll();
@@ -19,17 +22,15 @@ export const useLocomotiveScroll = (ref) => {
             const scroll = new LocomotiveScroll({
                 el: ref.current,
                 smooth: true,
-                lerp: 0.1,
                 multiplier: 1,
                 class: "is-inview",
-                offset: [0, 0],
-                reloadOnContextChange: true,
                 smartphone: { smooth: true },
                 tablet: { smooth: true },
             });
 
             console.log("Locomotive Scroll initialized", scroll);
 
+            // Sync with GSAP ScrollTrigger
             scroll.on("scroll", (args) => {
                 scrollY.set(args.scroll.y);
             });

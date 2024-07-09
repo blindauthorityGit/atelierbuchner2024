@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -20,6 +19,8 @@
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 [data-scroll-container] {
@@ -60,9 +61,51 @@ body {
   transform: translateY(20px);
 } */
 
+.animate-me2 {
+  clip-path: inset(0% 50%);
+  /* opacity: 0 */
+}
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
+/* LENIS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.parallax-element {
+  transform: translate3d(0, 0, 0); /* Ensure initial transform is neutral */
+}
+
+/* .before {
+  position: relative;
+}
+
+.before::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 100%;
+  background: red;
+} */

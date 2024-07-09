@@ -1,10 +1,16 @@
 import { FaBars } from "react-icons/fa";
 import Logo from "../assets/logo/SVG/logo.svg";
+import LogoWhite from "../assets/logo/logoWhite.svg";
 import Burger from "../assets/icons/burger.svg";
 
 const menuConfig = {
     logo: {
         src: Logo.src,
+        alt: "Logo",
+        text: "MySite",
+    },
+    logoWhite: {
+        src: LogoWhite.src,
         alt: "Logo",
         text: "MySite",
     },
