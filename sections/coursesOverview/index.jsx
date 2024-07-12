@@ -1,23 +1,25 @@
 import React, { useState, useRef, useEffect } from "react";
-
+import Link from "next/link";
 //COMPS
 import MainHero from "../../components/hero/mainHero";
 import SectionContainer from "../../components/layout/sectionContainer";
 import { CatCard } from "../../components/cards";
-import { MainButton } from "../../components/buttons";
+import { MainButton, GhostButton } from "../../components/buttons";
 import { HeroElement } from "../../components/swiper";
 //TYPO
-import { H1, H2, P } from "../../components/typography";
+import { H1, H2, H4, P } from "../../components/typography";
 //ASSETS
-import Hero2 from "../../assets/test/hero2.jpg";
+import Hero2 from "../../assets/test/kurs3.jpg";
 import Hero3 from "../../assets/test/hero3.jpg";
 import Hero4 from "../../assets/test/hero4.jpg";
 import Hero5 from "../../assets/test/hero5.jpg";
 import Hero6 from "../../assets/test/hero6.jpg";
 import Chevron from "../../assets/icons/chevron.svg";
 // ANIMATION
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Parallax from "../../components/parallax";
+import { fadeIn, slideInFromLeft, slideInFromRight, slideInFromBottom } from "../../animations/variants";
+import ImagePainter from "../../animations/imagePainter";
 
 // Import Swiper styles
 import "swiper/css";
@@ -87,13 +89,20 @@ const CoursesOverview = () => {
 
     return (
         <>
-            <SectionContainer klasse="gap-4 grid-rows-[auto_1fr] py-48" fullHeight>
-                <div className="col-span-6 h-auto z-10">
-                    <H2>
-                        AKADEMIEN IM ZYKLUS
-                        <br /> DER JAHRESZEITEN
+            <SectionContainer klasse="gap-4 grid-rows-[auto_1fr] pt-48 3xl:pb-20 4xl:pb-48" fullHeight>
+                <motion.div
+                    className="col-span-6 h-auto z-10"
+                    initial="hidden"
+                    whileInView="visible"
+                    variants={slideInFromLeft(0.2)}
+                    viewport={{ once: false }}
+                >
+                    <H2 klasse="">
+                        <span className="">AKADEMIEN IM ZYKLUS</span>
+                        <br />
+                        <span>DER JAHRESZEITEN</span>
                     </H2>
-                </div>
+                </motion.div>
                 <div className="col-span-6 h-auto z-10">
                     <P>
                         Lorem ipsum dolor sit amet consectetur. Risus eget eleifend porttitor quis mattis tellus. Sed
@@ -103,30 +112,56 @@ const CoursesOverview = () => {
                         interdum.
                     </P>
                 </div>
-                <div className="px-24 grid grid-cols-12 col-span-12 gap-8 z-10">
+                <div className="px-24 grid grid-cols-12 col-span-12 gap-8 z-10 ">
                     {data.map((e, i) => {
                         return (
-                            <CatCard
-                                // data-scroll
-                                // data-scroll-speed={i + 2}
-                                klasse="col-span-3 z-10"
-                                title="TEST"
-                                subline="test"
-                                image={e.src}
-                                // onHoverStart={() => handleHoverStart(i)}
-                                // onHoverEnd={handleHoverEnd}
-                                // animate={{
-                                //     scale: hoveredIndex === i ? 1.1 : hoveredIndex === null ? 1 : 0.9,
-                                //     filter: hoveredIndex === null || hoveredIndex === i ? "none" : "blur(4px)",
-                                // }}
-                                // transition={{ duration: 0.3 }}
-                            ></CatCard>
+                            <motion.div
+                                key={i}
+                                initial="hidden"
+                                whileInView="visible"
+                                variants={slideInFromBottom(0.2 * i)}
+                                viewport={{ once: false, amount: 0.5 }}
+                                className="col-span-3 z-10 2xl:h-[38svh]"
+                            >
+                                <Link href="/courses">
+                                    <CatCard
+                                        // data-scroll
+                                        // data-scroll-speed={i + 2}
+                                        klasse="col-span-3 z-10"
+                                        title="TEST"
+                                        subline="test"
+                                        image={e.src}
+                                        // onHoverStart={() => handleHoverStart(i)}
+                                        // onHoverEnd={handleHoverEnd}
+                                        // animate={{
+                                        //     scale: hoveredIndex === i ? 1.1 : hoveredIndex === null ? 1 : 0.9,
+                                        //     filter: hoveredIndex === null || hoveredIndex === i ? "none" : "blur(4px)",
+                                        // }}
+                                        // transition={{ duration: 0.3 }}
+                                    ></CatCard>
+                                    <H4 klasse="!mb-2 mt-2">Sommerakademie</H4>
+                                    <div className="flex w-full">
+                                        <div className="left">
+                                            <P>Faszination Pigmente</P>
+                                        </div>
+                                        <div className="right text-right">
+                                            {" "}
+                                            <P>01.-05.02.2024</P>{" "}
+                                        </div>
+                                    </div>
+                                </Link>
+                            </motion.div>
                         );
                     })}
+                </div>{" "}
+                <div className="col-span-12 flex justify-center">
+                    <GhostButton klasse="mt-8" link="/gallery">
+                        Alle Bilder
+                    </GhostButton>
                 </div>
                 <div
                     ref={parallaxRef2}
-                    className="bg-primaryColor-200 absolute 3xl:w-[26.6svw] 3xl:h-[43svh] 3xl:left-[11.9svw] 3xl:top-[14svh]"
+                    className="bg-primaryColor-100 absolute 3xl:w-[26.6svw] 3xl:h-[43svh] 3xl:left-[11.9svw] 3xl:top-[14svh]"
                 ></div>
             </SectionContainer>
         </>

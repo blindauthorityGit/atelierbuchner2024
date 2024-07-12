@@ -9,8 +9,8 @@ import { BasicHeroElement } from "../../components/swiper";
 import { H1, H4, P } from "../../components/typography";
 //ASSETS
 import Hero2 from "../../assets/test/galerie.jpg";
-import Hero3 from "../../assets/test/kurs.jpg";
-import Hero4 from "../../assets/test/hero4.jpg";
+import Hero3 from "../../assets/test/kurs2.jpg";
+import Hero4 from "../../assets/test/kurs3_1.jpg";
 import Hero5 from "../../assets/test/hero5.jpg";
 import Hero6 from "../../assets/test/hero6.jpg";
 // SWIPER
@@ -36,11 +36,11 @@ gsap.registerPlugin(ScrollTrigger);
 //HOOKS
 import useDimension from "../../hooks/useDimension";
 
-const HeroSection = () => {
+const HeroSection = ({ darken }) => {
     const [swiper, setSwiper] = useState(null);
     const [isLastSlideLeft, setIsLastSlideLeft] = useState(true);
     const [isLastSlideRight, setIsLastSlideRight] = useState(false);
-    const [data, setDate] = useState([Hero2, Hero3, Hero4, Hero5, Hero6]);
+    const [data, setDate] = useState([Hero4]);
 
     const parallaxRef = useRef(null);
 
@@ -86,16 +86,16 @@ const HeroSection = () => {
     return (
         <>
             <SectionContainer klasse="md:grid-rows-none grid-rows-[auto_1fr] smooth-content" fullHeight>
-                <div className="col-span-12 lg:col-span-6 flex flex-col justify-end pl-24 z-20">
-                    <div className="absolute px-4 lg:px-0 bottom-[18.12svh] top-auto 3xl:left-[55svh] 3xl:top-[20svh] z-10">
+                <div className="col-span-12 lg:col-span-5 flex flex-col justify-end pl-24 z-20">
+                    <div className="absolute text-right px-4 lg:px-0 bottom-[18.12svh] top-auto 3xl:right-[0svh] 3xl:top-[28svh] z-10">
+                        <H4 klasse="right-0 pr-16 !font-black">02. - 06.02.2024</H4>
+
                         <H1>
-                            <span className="font-thin">King-of-Saxony</span>
-                            <br />
-                            <span className="font-bold ml-16">Bird-of-Paradise</span>
+                            <span className="font-thin">Frühlingsakademie 2024</span>
                         </H1>
                     </div>
-                    <div className="  3xl:top-[69.7svh]  h-2/4 pt-16   z-10">
-                        <H4>4 Tage Studium des menschlichen Gesichtes</H4>
+                    <div className="  3xl:top-[69.7svh]  h-2/4 pt-16 xl:pt-0   z-10">
+                        <H4 klasse="pr-16">4 Tage Studium des menschlichen Gesichtes</H4>
                         <P>
                             Step into a world of art, where creativity and expression come
                             <br /> together tocreate a symphony of beauty Step into a world of art, where creativity and
@@ -107,7 +107,7 @@ const HeroSection = () => {
                             Alle Bilder
                         </GhostButton>
                     </div>
-                    <div className="wrapper   3xl:top-[87.7svh] justify-between relative hidden lg:flex pr-36">
+                    {/* <div className="wrapper   3xl:top-[87.7svh] justify-between relative hidden lg:flex pr-36">
                         <div className="left text-sm font-body ">
                             Atelier Buchner | Prof. Sepp Buchner Straße 528 <br />
                             office@atelierbuchner.at
@@ -115,18 +115,28 @@ const HeroSection = () => {
                         <GhostButton klasse="mt-8" link="/gallery">
                             Alle Bilder
                         </GhostButton>
-                    </div>
+                    </div> */}
                 </div>
-                <div className="col-span-12 lg:col-span-6 order-first  px-[40px] lg:px-0 z-10">
+                <div
+                    className={`col-span-12 lg:col-span-7 order-first  px-[40px] lg:px-0 z-10 ${
+                        darken ? "mix-blend-darken" : null
+                    }`}
+                >
                     <Parallax
+                        onLoad={() => {
+                            console.log("loaded noinoenoen");
+                        }}
                         speed={1.8}
-                        className="top-[3.58svh] w-[44svw] h-[60svh] z-20 xl:z-0 xl:top-[17svh] relative"
+                        className="top-[3.58svh] w-[44svw] h-[60svh] z-20 xl:z-0 xl:w-[51svw] xl:top-[-6svh] relative"
                     >
                         <Swiper
                             // install Swiper modules
                             modules={[Pagination, Navigation, A11y]}
                             slidesPerView={1}
                             lazy
+                            onLoad={() => {
+                                console.log("loaded noinoenoen");
+                            }}
                             pagination={{ clickable: true, dynamicBullets: true }}
                             onSwiper={(swiper) => {
                                 {
@@ -160,7 +170,7 @@ const HeroSection = () => {
                 </div>{" "}
                 <div
                     ref={parallaxRef}
-                    className="bg-primaryColor-200 absolute w-full 3xl:w-[26.64svw] h-[25svh] 3xl:h-[38.9svh] 3xl:left-[-2.97svw] top-[14svh] 3xl:top-[24svh]"
+                    className="bg-primaryColor-100 absolute w-full 3xl:w-[26.64svw] h-[25svh] 3xl:h-[38.9svh] 3xl:left-[-2.97svw] top-[14svh] 3xl:top-[20svh]"
                 ></div>
             </SectionContainer>
         </>

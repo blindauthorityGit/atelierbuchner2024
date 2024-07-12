@@ -9,7 +9,7 @@ import client from "../../client";
 import MainContainer from "../../components/layout/mainContainer";
 import GallerySection from "../../sections/gallery";
 import HeroSection from "../../sections/hero";
-import SnapTest from "../../sections/snapSections";
+// import GradientDiv from "../components/layout/gradientDiv";
 
 export default function Gallery({ data, lenisRef }) {
     const containerRef = useRef(null);
@@ -25,7 +25,7 @@ export default function Gallery({ data, lenisRef }) {
                 {/* <SnapTest lenisRef={lenisRef}></SnapTest> */}
                 <MainContainer>
                     <HeroSection />
-                    <GallerySection images={data}></GallerySection>
+                    <GallerySection images={data.sort((a, b) => a.year - b.year)}></GallerySection>
                 </MainContainer>
             </>
         </>

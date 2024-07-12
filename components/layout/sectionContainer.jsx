@@ -4,7 +4,7 @@ const SectionContainer = forwardRef(({ children, klasse, fullHeight, ...props },
     return (
         <section
             ref={ref}
-            className={`grid grid-cols-12 relative ${klasse} ${fullHeight ? "min-h-[100svh]" : ""}`}
+            className={`grid grid-cols-12 relative bg-primaryColor-50 ${klasse} ${fullHeight ? "min-h-[100svh]" : ""}`}
             {...props}
         >
             {children}

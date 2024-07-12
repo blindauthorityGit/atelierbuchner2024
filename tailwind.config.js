@@ -13,6 +13,7 @@ module.exports = {
         extend: {
             screens: {
                 "3xl": "1920px", // Add new breakpoint
+                "4xl": "2020px", // Add new breakpoint
             },
             container: {
                 center: true,
@@ -24,11 +25,13 @@ module.exports = {
                     xl: "1240px",
                     "2xl": "1496px",
                     "3xl": "1680px", // Custom size for the new breakpoint
+                    "4xl": "2000px", // Custom size for the new breakpoint
                 },
             },
             fontFamily: {
                 ...fontFamily,
-                headline: ["the-seasons", "serif"],
+                // headline: ["the-seasons", "serif"],
+                headline: ["fino-sans", "serif"],
                 body: ["articulat-cf", "sans-serif"],
             },
             colors: {

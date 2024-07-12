@@ -5,7 +5,7 @@ export default function Document() {
         <Html lang="en">
             <Head />
             <link rel="stylesheet" href="https://use.typekit.net/far2lvp.css" />
-            <body className="bg-primaryColor-100">
+            <body className="bg-primaryColor-50">
                 <Main />
                 <NextScript />
             </body>

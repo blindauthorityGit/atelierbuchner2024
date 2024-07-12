@@ -1,14 +1,22 @@
 import "/styles/globals.css";
-import { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import useStore from "../store/store"; // Import the Zustand store
 import { Menu } from "../components/menu";
 import MenuConfig from "../config/menu";
 import AnimatedCursor from "react-animated-cursor";
+import { ModalMenu } from "../components/modal";
+import { MenuModal } from "../components/modalContent";
+import TransitionLayout from "../animations/transitionLayout/";
 
 import { gsap } from "gsap";
 
 //LIBS
 import { ReactLenis, useLenis } from "../libs/lenis";
+
+//HOOKS
+import useScrollToTop from "../hooks/useScrollToTop"; // Adjust the path according to your project structure
+import useLenisScrollToTop from "../hooks/useLenisScrollToTop"; // Adjust the path according to your project structure
+import { usePathname } from "next/navigation";
 
 export default function App({ Component, pageProps }) {
     // const containerRef = useRef(null);
@@ -21,6 +29,10 @@ export default function App({ Component, pageProps }) {
     //         setScrollY(value);
     //     });
     // }, [containerRef, scrollY, setScrollY]);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    useScrollToTop();
+    const pathname = usePathname();
 
     const lenis = useLenis(({ scroll }) => {
         // called every scroll
@@ -40,20 +52,45 @@ export default function App({ Component, pageProps }) {
         };
     }, []);
 
+    useEffect(() => {
+        console.log(pathname);
+        if (lenisRef.current) {
+            console.log("TOP ");
+            // lenis.current?.scrollTo(0, { immediate: true });
+        }
+    }, [pathname, lenis]);
+
     return (
         <>
+            {" "}
+            {isModalOpen && (
+                <ModalMenu
+                    onClose={() => {
+                        setIsModalOpen(false);
+                    }}
+                    isOpen={true}
+                >
+                    <MenuModal></MenuModal>
+                </ModalMenu>
+            )}
             <Menu
                 logo={MenuConfig.logo}
                 logoWhite={MenuConfig.logoWhite}
                 links={MenuConfig.links}
                 ctas={MenuConfig.ctas}
                 burgerMenu={MenuConfig.burgerMenu}
-            />
-            <ReactLenis ref={lenisRef} autoRaf={false} root options={{ lerp: 0.85 }}>
-                {/* <AnimatedCursor innerScale={1} outerScale={1.7} /> */}
+                burgerClick={() => {
+                    console.log("clicked", isModalOpen);
+                    setIsModalOpen(true);
+                }}
+            />{" "}
+            <TransitionLayout>
+                <ReactLenis ref={lenisRef} autoRaf={false} root options={{ lerp: 0.12 }}>
+                    {/* <AnimatedCursor innerScale={1} outerScale={1.7} /> */}
 
-                <Component {...pageProps} lenisRef={lenisRef} />
-            </ReactLenis>
+                    <Component {...pageProps} />
+                </ReactLenis>
+            </TransitionLayout>
         </>
     );
 }

@@ -85,7 +85,7 @@ const BioOverview = forwardRef((props, ref) => {
             opacity: 1,
             clipPath: "inset(0% 0%)",
             background: "#393836",
-            duration: 28,
+            duration: 128,
             // ease: "power2.inOut",
         })
             .to(elementRef3.current, { opacity: "70%", duration: 15 }, "+=56")
@@ -154,7 +154,7 @@ const BioOverview = forwardRef((props, ref) => {
     return (
         <SectionContainer fullHeight ref={elementRef}>
             <div
-                className="w-full h-full col-span-12 bioOverview  bg-darkGrey animate-me2"
+                className="w-full h-full col-span-12 bioOverview  bg-[#d9d8ce] animate-me2"
                 // style={{ backgroundImage: `url(${Hero2.src})` }}
                 ref={elementRef2}
             >

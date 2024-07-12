@@ -10,7 +10,7 @@ const GhostButton = (props) => {
                     props.noMargin ? null : "mt-4 lg:mt-12 md:mt-16"
                 }`}
             >
-                <span className="">dsds {props.children}</span>
+                <span className=""> {props.children}</span>
             </button>
         </Link>
     );
