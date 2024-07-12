@@ -12,7 +12,7 @@ const transitionVariants = {
         opacity: 1,
         clipPath: "circle(150% at 50% 50%)",
         transition: {
-            duration: 1,
+            duration: 0.5,
             ease: "easeInOut",
         },
     },
@@ -32,9 +32,12 @@ const TransitionLayout = ({ children }) => {
 
     useEffect(() => {
         const handleStart = () => {
+            console.log("STARTWED");
             setIsTransitioning(true);
         };
         const handleComplete = () => {
+            console.log("FINISHED");
+
             setIsTransitioning(false);
         };
 

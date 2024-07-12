@@ -43,7 +43,7 @@ const Parallax = ({ className, children, speed = 1, id = "parallax", style }) =>
         // Simulate content loading with a timeout or replace with actual content load check
         const timer = setTimeout(() => {
             setContentLoaded(true); // Assume content has loaded
-        }, 400); // Adjust time as needed
+        }, 500); // Adjust time as needed
 
         return () => clearTimeout(timer);
     }, []);

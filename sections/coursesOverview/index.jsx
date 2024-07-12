@@ -19,7 +19,6 @@ import Chevron from "../../assets/icons/chevron.svg";
 import { motion, useInView } from "framer-motion";
 import Parallax from "../../components/parallax";
 import { fadeIn, slideInFromLeft, slideInFromRight, slideInFromBottom } from "../../animations/variants";
-import ImagePainter from "../../animations/imagePainter";
 
 // Import Swiper styles
 import "swiper/css";

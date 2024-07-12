@@ -19,10 +19,10 @@ import Bild2 from "../../assets/test/akadamie/2.JPG";
 import Bild3 from "../../assets/test/akadamie/3.JPG";
 import Bild4 from "../../assets/test/akadamie/4.JPG";
 
-import Benefit1 from "../../assets/test/benefits/1.JPG";
-import Benefit2 from "../../assets/test/benefits/2.JPG";
-import Benefit3 from "../../assets/test/benefits/3.JPG";
-import Benefit4 from "../../assets/test/benefits/4.JPG";
+import Benefit1 from "../../assets/test/benefits/1.jpg";
+import Benefit2 from "../../assets/test/benefits/2.jpg";
+import Benefit3 from "../../assets/test/benefits/3.jpg";
+import Benefit4 from "../../assets/test/benefits/4.jpg";
 
 export default function Courses({ data, lenisRef }) {
     const containerRef = useRef(null);
