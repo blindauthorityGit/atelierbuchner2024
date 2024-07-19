@@ -6,6 +6,7 @@ const SectionContainer = forwardRef(({ children, klasse, fullHeight, ...props },
             ref={ref}
             className={`grid grid-cols-12 relative bg-primaryColor-50 ${klasse} ${fullHeight ? "min-h-[100svh]" : ""}`}
             {...props}
+            style={{ gridAutoRows: "auto" }} // Added this line
         >
             {children}
         </section>

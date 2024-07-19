@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 //COMPS
 import SectionContainer from "../../components/layout/sectionContainer";
 import { CoverImage } from "../../components/images";
-import { MainButton, GhostButton } from "../../components/buttons";
+import { MainButton, MainButtonNOLink, GhostButton } from "../../components/buttons";
 import { BasicHeroElement } from "../../components/swiper";
 //TYPO
 import { H1, H4, P } from "../../components/typography";
@@ -36,7 +36,7 @@ gsap.registerPlugin(ScrollTrigger);
 //HOOKS
 import useDimension from "../../hooks/useDimension";
 
-const HeroSection = ({ darken }) => {
+const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText }) => {
     const [swiper, setSwiper] = useState(null);
     const [isLastSlideLeft, setIsLastSlideLeft] = useState(true);
     const [isLastSlideRight, setIsLastSlideRight] = useState(false);
@@ -85,17 +85,17 @@ const HeroSection = ({ darken }) => {
 
     return (
         <>
-            <SectionContainer klasse="md:grid-rows-none grid-rows-[auto_1fr] smooth-content" fullHeight>
-                <div className="col-span-12 lg:col-span-5 flex flex-col justify-end pl-24 z-20">
-                    <div className="absolute text-right px-4 lg:px-0 bottom-[18.12svh] top-auto 3xl:right-[0svh] 3xl:top-[28svh] z-10">
-                        <H4 klasse="right-0 pr-16 !font-black">02. - 06.02.2024</H4>
+            <SectionContainer klasse="md:grid-rows-none  smooth-content" fullHeight>
+                <div className="col-span-12 lg:col-span-5 flex flex-col justify-end xl:pl-24 z-20">
+                    <div className="xl:absolute text-right px-4 lg:px-0 xl:bottom-[18.12svh] top-auto 3xl:right-[0svh] 3xl:top-[28svh] z-10">
+                        <H4 klasse="right-0 pr-16 mb-0 lg:mb-6 !font-black">02. - 06.02.2024</H4>
 
-                        <H1>
-                            <span className="font-thin">Frühlingsakademie 2024</span>
+                        <H1 klasse="text-left">
+                            <span className="font-thin text-4xl lg:text-8xl">Frühlingsakademie 2024</span>
                         </H1>
                     </div>
-                    <div className="  3xl:top-[69.7svh]  h-2/4 pt-16 xl:pt-0   z-10">
-                        <H4 klasse="pr-16">4 Tage Studium des menschlichen Gesichtes</H4>
+                    <div className="  3xl:top-[69.7svh]  xl:h-2/4 lg:pt-16 xl:pt-0 px-4 lg:px-0 z-10">
+                        <H4 klasse="xl:pr-16">4 Tage Studium des menschlichen Gesichtes</H4>
                         <P>
                             Step into a world of art, where creativity and expression come
                             <br /> together tocreate a symphony of beauty Step into a world of art, where creativity and
@@ -103,9 +103,17 @@ const HeroSection = ({ darken }) => {
                             creativity and expression come
                             <br /> together tocreate a symphony of beauty
                         </P>
-                        <GhostButton klasse="mt-12" link="/gallery">
-                            Alle Bilder
-                        </GhostButton>
+
+                        {buttons ? (
+                            <div className="lg:flex mt-8  flex-grow w-full  sm:space-y-0 sm:space-x-4">
+                                <GhostButton klasse="flex-grow mb-4" link={ghostLink} noMargin>
+                                    {ghostText}
+                                </GhostButton>
+                                <MainButton klasse="bg-darkGrey lg:mt-12 flex-grow" link={mainLink}>
+                                    {mainText}
+                                </MainButton>
+                            </div>
+                        ) : null}
                     </div>
                     {/* <div className="wrapper   3xl:top-[87.7svh] justify-between relative hidden lg:flex pr-36">
                         <div className="left text-sm font-body ">
@@ -118,7 +126,7 @@ const HeroSection = ({ darken }) => {
                     </div> */}
                 </div>
                 <div
-                    className={`col-span-12 lg:col-span-7 order-first  px-[40px] lg:px-0 z-10 ${
+                    className={`col-span-12 lg:col-span-7 order-first lg:px-0 z-10 ${
                         darken ? "mix-blend-darken" : null
                     }`}
                 >
@@ -127,7 +135,7 @@ const HeroSection = ({ darken }) => {
                             console.log("loaded noinoenoen");
                         }}
                         speed={1.8}
-                        className="top-[3.58svh] w-[44svw] h-[60svh] z-20 xl:z-0 xl:w-[51svw] xl:top-[-6svh] relative"
+                        className="top-[-2rem] lg:top-[3.58svh] w-[100svw] lg:w-[44svw] lg:h-[60svh] z-20 xl:z-0 xl:w-[51svw] xl:top-[-6svh] relative"
                     >
                         <Swiper
                             // install Swiper modules

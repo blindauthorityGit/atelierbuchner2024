@@ -6,9 +6,12 @@ import client from "../../client";
 //SECTIONS
 import CourseList from "../../sections/courseList";
 import BasicText from "../../sections/basicText";
+import BasicTextImage from "../../sections/basicTextImage";
 import HeroSection from "../../sections/hero";
 import BasicGallery from "../../sections/galleries/basicGallery";
+import MasonryGallery from "../../sections/galleries/masonryGallery";
 import Benefits from "../../sections/benefits";
+import Booking from "../../sections/booking";
 //LAYOUT
 import MainContainer from "../../components/layout/mainContainer";
 
@@ -28,6 +31,7 @@ export default function Courses({ data, lenisRef }) {
     const containerRef = useRef(null);
 
     const bilder = [Bild1, Bild2, Bild3, Bild4];
+    const bilder2 = [Bild1, Bild2, Bild3, Bild4, Bild1, Bild2];
 
     const benefits = [
         {
@@ -100,12 +104,26 @@ export default function Courses({ data, lenisRef }) {
                 {" "}
                 {/* <SnapTest lenisRef={lenisRef}></SnapTest> */}
                 <MainContainer>
-                    <HeroSection darken />
+                    <HeroSection
+                        darken
+                        buttons
+                        ghostLink="#mumu"
+                        ghostText="Mehr Infos"
+                        mainLink="/booking?kurs=herbstakademie"
+                        mainText="Jetzt anmelden"
+                    />
                     <BasicText klasse="xl:!pb-0"></BasicText>
                     <BasicGallery data={bilder}></BasicGallery>
                     <CourseList ablauf={ablauf} details={details}></CourseList>
                     <Benefits data={benefits}></Benefits>
+                    <BasicTextImage></BasicTextImage>
                 </MainContainer>
+                <div className="bg-primaryColor-100 w-full relative z-20">
+                    <div className="bg-primaryColor-50 w-full container mx-auto">
+                        <Booking></Booking>
+                    </div>
+                </div>
+                <MainContainer></MainContainer>
             </>
         </>
     );

@@ -16,6 +16,13 @@
   }
 }
 
+/* Custom class for responsive textarea rows */
+@media (min-width: 768px) {
+  .md-rows-9 {
+      rows: 9;
+  }
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -97,6 +104,12 @@ html.lenis, html.lenis body {
 .parallax-element {
   transform: translate3d(0, 0, 0); /* Ensure initial transform is neutral */
 }
+
+/* styles/globals.css or styles/CustomRadioButton.module.css */
+/* input[type="radio"]:checked + span {
+  background-color: black;
+} */
+
 
 /* .before {
   position: relative;

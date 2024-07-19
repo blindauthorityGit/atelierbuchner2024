@@ -7,6 +7,7 @@ import AnimatedCursor from "react-animated-cursor";
 import { ModalMenu } from "../components/modal";
 import { MenuModal } from "../components/modalContent";
 import TransitionLayout from "../animations/transitionLayout/";
+import Footer from "../sections/footer";
 
 import { gsap } from "gsap";
 
@@ -89,6 +90,7 @@ export default function App({ Component, pageProps }) {
                     {/* <AnimatedCursor innerScale={1} outerScale={1.7} /> */}
 
                     <Component {...pageProps} />
+                    <Footer></Footer>
                 </ReactLenis>
             </TransitionLayout>
         </>

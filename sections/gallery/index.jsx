@@ -74,7 +74,7 @@ const Gallery = ({ images }) => {
     }, []);
 
     // Split the images into three parts
-    const columnCount = 3;
+    const columnCount = 4;
     const columns = Array.from({ length: columnCount }, (_, index) =>
         images.filter((_, imageIndex) => imageIndex % columnCount === index)
     );
@@ -91,7 +91,7 @@ const Gallery = ({ images }) => {
                         </H1>
                     </div>
                 </div>
-                <div className="grid col-span-12 grid-cols-12 px-16 gap-16 ">
+                <div className="grid col-span-12 grid-cols-12 px-2 lg:px-16 lg:gap-16 ">
                     {columns.map((column, columnIndex) => (
                         <Parallax speed={1 * columnIndex + 2} key={columnIndex} className="col-span-12 md:col-span-4">
                             {column.map((image, index) => (
@@ -106,8 +106,9 @@ const Gallery = ({ images }) => {
                                         src={urlFor(image.image).url()} // Replace with the actual path to your image
                                         mobileSrc={urlFor(image.image).url()} // Replace with the actual path to your image
                                         alt="Cover Background"
-                                        // style={{ aspectRatio: image.aspect_ratio?.split("_").join("/") }}
-                                        className={`w-full z-20  lg:block relative mb-8 overflow-hidden aspect-[1/0.73] md:aspect-[1/0.7] 2xl:aspect-[1/1]`}
+                                        style={{ aspectRatio: image.aspect_ratio?.split("_").join("/") }}
+                                        className={`w-full z-20  lg:block relative mb-2 lg:mb-8 overflow-hidden `}
+                                        // className={`w-full z-20  lg:block relative mb-8 overflow-hidden aspect-[1/0.73] md:aspect-[1/0.7] 2xl:aspect-[1/1]`}
                                         // data-aos={"fade-left"}
 
                                         priority={true}

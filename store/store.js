@@ -14,6 +14,9 @@ const useStore = create((set) => ({
 
     isDark: false,
     setIsDark: (show) => set({ isDark: show }),
+
+    formData: {},
+    setFormData: (data) => set((state) => ({ formData: { ...state.formData, ...data } })),
 }));
 
 export default useStore;
