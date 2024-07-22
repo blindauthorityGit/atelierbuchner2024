@@ -27,7 +27,7 @@ const MainButton = ({ link, onClick, type, disabled, klasse, aklass, children, .
                 disabled={disabled}
                 className={`${klasse} ${
                     disabled ? "opacity-30" : null
-                } font-body border border-darkGrey bg-darkGrey font-regular 2xl:text-base tracking-widest hover-underline-animation z-20 flex items-center justify-center text-primaryColor-50 py-4 text-xs sm:text-base xl:text-sm 3xl:text-[1rem] sm:py-6 xl:py-4 2xl:py-[0.875rem] w-full px-6 uppercase rounded-[5px]`}
+                } font-body border border-darkGrey bg-darkGrey font-regular 2xl:text-base tracking-widest hover-underline-animation z-20 flex items-center justify-center text-primaryColor-50 py-4 text-xs sm:text-base xl:text-sm 3xl:text-[1rem] sm:py-6 xl:py-4 2xl:py-[0.875rem] w-full px-6 uppercase rounded-[5px] lg:min-w-[16rem]`}
                 // Spread additional props here
             >
                 <motion.span variants={textAnimation} transition={{ duration: 0.3, ease: "easeInOut", delay: 0.15 }}>

@@ -86,30 +86,27 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
     return (
         <>
             <SectionContainer klasse="md:grid-rows-none  smooth-content" fullHeight>
-                <div className="col-span-12 lg:col-span-5 flex flex-col justify-end xl:pl-24 z-20">
-                    <div className="xl:absolute text-right px-4 lg:px-0 xl:bottom-[18.12svh] top-auto 3xl:right-[0svh] 3xl:top-[28svh] z-10">
-                        <H4 klasse="right-0 pr-16 mb-0 lg:mb-6 !font-black">02. - 06.02.2024</H4>
+                <div className="col-span-12 pt-8 lg:pt-0 lg:col-span-5 flex flex-col justify-end xl:pl-24 z-20">
+                    <div className="xl:absolute lg:text-right px-4 lg:px-0 xl:bottom-[18.12svh] top-auto 3xl:right-[0svh] 3xl:top-[28svh] z-10">
+                        <H4 klasse="lg:right-0 lg:pr-16 !mb-0 lg:mb-6 !font-black">02. - 06.02.2024</H4>
 
                         <H1 klasse="text-left">
                             <span className="font-thin text-4xl lg:text-8xl">Frühlingsakademie 2024</span>
                         </H1>
                     </div>
                     <div className="  3xl:top-[69.7svh]  xl:h-2/4 lg:pt-16 xl:pt-0 px-4 lg:px-0 z-10">
-                        <H4 klasse="xl:pr-16">4 Tage Studium des menschlichen Gesichtes</H4>
+                        <H4 klasse="xl:pr-16 ">4 Tage Studium des menschlichen Gesichtes</H4>
                         <P>
                             Step into a world of art, where creativity and expression come
                             <br /> together tocreate a symphony of beauty Step into a world of art, where creativity and
-                            expression come together tocreate a symphony of beauty Step into a world of art, where
-                            creativity and expression come
-                            <br /> together tocreate a symphony of beauty
                         </P>
 
                         {buttons ? (
-                            <div className="lg:flex mt-8  flex-grow w-full  sm:space-y-0 sm:space-x-4">
-                                <GhostButton klasse="flex-grow mb-4" link={ghostLink} noMargin>
+                            <div className="lg:flex mt-8 lg:mt-16 flex-grow w-full  sm:space-y-0 sm:space-x-4">
+                                <GhostButton klasse="flex-grow mb-4 lg:mb-0" link={ghostLink} noMargin>
                                     {ghostText}
                                 </GhostButton>
-                                <MainButton klasse="bg-darkGrey lg:mt-12 flex-grow" link={mainLink}>
+                                <MainButton klasse="bg-darkGrey flex-grow" link={mainLink}>
                                     {mainText}
                                 </MainButton>
                             </div>

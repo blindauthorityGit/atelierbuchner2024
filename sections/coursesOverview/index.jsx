@@ -138,14 +138,13 @@ const CoursesOverview = () => {
                                         // }}
                                         // transition={{ duration: 0.3 }}
                                     ></CatCard>
-                                    <H4 klasse="!mb-2 mt-2">Sommerakademie</H4>
-                                    <div className="flex w-full">
+                                    <H4 klasse="!mb-0 mt-2">Sommerakademie</H4>
+                                    <div className=" w-full">
                                         <div className="left">
-                                            <P>Faszination Pigmente</P>
+                                            <P klasse="font-bold">01.-05.02.2024</P>{" "}
                                         </div>
-                                        <div className="right text-right">
-                                            {" "}
-                                            <P>01.-05.02.2024</P>{" "}
+                                        <div className="right mt-2">
+                                            <P>Faszination Pigmente</P>
                                         </div>
                                     </div>
                                 </Link>
