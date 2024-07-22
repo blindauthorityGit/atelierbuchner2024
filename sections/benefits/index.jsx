@@ -50,9 +50,16 @@ const Benefits = ({ data }) => {
 
     return (
         <>
-            <SectionContainer klasse="gap-8 pb-36 px-36">
+            <SectionContainer klasse="gap-8 pb-36 px-4 lg:px-36">
                 {data.map((e, i) => {
-                    return <Benefit klasse="col-span-3" image={e.image} headline={e.headline} text={e.text}></Benefit>;
+                    return (
+                        <Benefit
+                            klasse="col-span-12 lg:col-span-3"
+                            image={e.image}
+                            headline={e.headline}
+                            text={e.text}
+                        ></Benefit>
+                    );
                 })}
             </SectionContainer>
         </>

@@ -67,17 +67,17 @@ const CourseList = ({ ablauf, details }) => {
 
     return (
         <>
-            <SectionContainer klasse="gap-4 2xl:mb-24">
-                <div className="col-span-3"></div>
+            <SectionContainer klasse="gap-4 px-4 lg:px-0 mb-12 2xl:mb-24">
+                <div className="hidden lg:block col-span-3"></div>
                 <motion.div
-                    className="col-span-6 h-auto z-10"
+                    className="col-span-12 lg:col-span-6 h-auto z-10"
                     initial="hidden"
                     whileInView="visible"
                     variants={slideInFromLeft(0.2)}
                     viewport={{ once: false }}
                 >
                     <Ablauf data={ablauf}></Ablauf>
-                    <div className="xl:h-24"></div>
+                    <div className="xl:h-24 mt-12 lg:mt-0"></div>
                     <Details data={details}></Details>
                 </motion.div>
                 <div

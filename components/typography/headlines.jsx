@@ -17,7 +17,7 @@ const H2 = React.forwardRef(({ children, klasse }, ref) => {
     return (
         <h2
             ref={ref}
-            className={`text-2xl font-headline text-textColor md:text-3xl  lg:text-2xl xl:text-3xl 2xl:text-7xl mb-4 lg:mb-10   ${klasse}`}
+            className={`text-3xl font-headline text-textColor md:text-3xl  lg:text-2xl xl:text-3xl 2xl:text-7xl mb-4 lg:mb-10   ${klasse}`}
         >
             {children}
         </h2>

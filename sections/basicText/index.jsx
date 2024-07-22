@@ -67,16 +67,16 @@ const BasicText = ({ klasse }) => {
 
     return (
         <>
-            <SectionContainer klasse={`gap-4  ${klasse} py-48`}>
-                <div className="col-span-3"></div>
+            <SectionContainer klasse={`gap-4  ${klasse} px-4 lg:px-0 py-24 lg:py-48`}>
+                <div className="hidden lg:block lg:col-span-3"></div>
                 <motion.div
-                    className="col-span-5 h-auto z-10"
+                    className="col-span-12 lg:col-span-5 h-auto z-10"
                     initial="hidden"
                     whileInView="visible"
                     variants={slideInFromLeft(0.2)}
                     viewport={{ once: false }}
                 >
-                    <H2 klasse="ml-[-8rem]">
+                    <H2 klasse="lg:ml-[-8rem]">
                         <span className="">AKADEMIEN IM ZYKLUS</span>
                         <br />
                         <span>DER JAHRESZEITEN</span>
@@ -89,14 +89,14 @@ const BasicText = ({ klasse }) => {
                         venenatis. Sed elit donec tellus vitae mattis odio sed. Bibendum varius nullam facilisis iaculis
                         interdum.
                     </P>
-                    <P>
+                    <P klasse="mt-6 lg:mt-8">
                         Lorem ipsum dolor sit amet consectetur. Risus eget eleifend porttitor quis mattis tellus. Sed
                         ultrices cras lectus rhoncus. Dui convallis neque nulla tortor pellentesque quis scelerisque.
                         Elementum vitae eget pharetra dui adipiscing auctor. Sit nulla tristique natoque convallis
                         venenatis. Sed elit donec tellus vitae mattis odio sed. Bibendum varius nullam facilisis iaculis
                         interdum.
                     </P>
-                    <P>
+                    <P klasse="mt-6 lg:mt-8">
                         Lorem ipsum dolor sit amet consectetur. Risus eget eleifend porttitor quis mattis tellus. Sed
                         ultrices cras lectus rhoncus. Dui convallis neque nulla tortor pellentesque quis scelerisque.
                         Elementum vitae eget pharetra dui adipiscing auctor. Sit nulla tristique natoque convallis
