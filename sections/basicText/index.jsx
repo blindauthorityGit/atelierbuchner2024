@@ -76,18 +76,15 @@ const BasicText = ({ klasse }) => {
                     variants={slideInFromLeft(0.2)}
                     viewport={{ once: true }}
                 >
-                    <H2 klasse="lg:ml-[-8rem]">
-                        <span className="">AKADEMIEN IM ZYKLUS</span>
-                        <br />
-                        <span>DER JAHRESZEITEN</span>
+                    <H2 klasse="lg:ml-[-8rem] !font-body font-black">
+                        <span className="">Wir entdecken die Freude</span>
+
+                        <span> am Malen und forschen</span>
                     </H2>
 
-                    <P>
+                    <P klasse="font-semibold">
                         Lorem ipsum dolor sit amet consectetur. Risus eget eleifend porttitor quis mattis tellus. Sed
-                        ultrices cras lectus rhoncus. Dui convallis neque nulla tortor pellentesque quis scelerisque.
-                        Elementum vitae eget pharetra dui adipiscing auctor. Sit nulla tristique natoque convallis
-                        venenatis. Sed elit donec tellus vitae mattis odio sed. Bibendum varius nullam facilisis iaculis
-                        interdum.
+                        ultrices cras lectus rhoncus. Dui convallis neque nulla
                     </P>
                     <P klasse="mt-6 lg:mt-8">
                         Lorem ipsum dolor sit amet consectetur. Risus eget eleifend porttitor quis mattis tellus. Sed
