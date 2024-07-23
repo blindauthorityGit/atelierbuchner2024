@@ -67,7 +67,7 @@ const BasicText = ({ klasse }) => {
 
     return (
         <>
-            <SectionContainer klasse={`gap-4  ${klasse} px-4 lg:px-0 py-24 lg:py-48`}>
+            <SectionContainer klasse={`gap-4  ${klasse} px-4 lg:px-0 py-12 lg:py-48`}>
                 <div className="hidden lg:block lg:col-span-3"></div>
                 <motion.div
                     className="col-span-12 lg:col-span-5 h-auto z-10"

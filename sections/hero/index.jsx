@@ -183,7 +183,7 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
                 <div className="col-span-12 px-4 lg:hidden block  ">
                     {buttons ? (
                         <div className="mt-2 lg:mt-16 flex-grow w-full  sm:space-y-0 sm:space-x-4">
-                            <MainButton klasse="bg-darkGrey flex-grow" link={mainLink}>
+                            <MainButton klasse="bg-darkGrey flex-grow font-bold" link={mainLink}>
                                 {mainText}
                             </MainButton>
                         </div>
