@@ -125,7 +125,7 @@ const Step1 = ({ next, options, preselectedOption, param }) => {
                         />
                     </div>
                 </div>
-                <div className="mb-4 lg:mb-8">
+                <div className="mb-4 lg:mb-8 hidden lg:block">
                     <label className="block text-darkGrey font-semibold xl:text-xl">Message</label>
                     <textarea
                         className="w-full px-3 py-2 border rounded bg-transparent border-thin border-b-darkGrey"

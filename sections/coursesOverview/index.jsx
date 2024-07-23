@@ -88,9 +88,12 @@ const CoursesOverview = () => {
 
     return (
         <>
-            <SectionContainer klasse="gap-4 grid-rows-[auto_1fr] pt-48 3xl:pb-20 4xl:pb-48" fullHeight>
+            <SectionContainer
+                klasse="gap-4 grid-rows-[auto_1fr] px-4 lg:px-0 pt-12 lg:pt-48 3xl:pb-20 4xl:pb-48"
+                fullHeight
+            >
                 <motion.div
-                    className="col-span-6 h-auto z-10"
+                    className="col-span-12 lg:col-span-6 h-auto z-10"
                     initial="hidden"
                     whileInView="visible"
                     variants={slideInFromLeft(0.2)}
@@ -102,7 +105,7 @@ const CoursesOverview = () => {
                         <span>DER JAHRESZEITEN</span>
                     </H2>
                 </motion.div>
-                <div className="col-span-6 h-auto z-10">
+                <div className="col-span-12 lg:col-span-6 h-auto z-10">
                     <P>
                         Lorem ipsum dolor sit amet consectetur. Risus eget eleifend porttitor quis mattis tellus. Sed
                         ultrices cras lectus rhoncus. Dui convallis neque nulla tortor pellentesque quis scelerisque.
@@ -111,7 +114,7 @@ const CoursesOverview = () => {
                         interdum.
                     </P>
                 </div>
-                <div className="px-24 grid grid-cols-12 col-span-12 gap-8 z-10 ">
+                <div className="lg:px-24 grid grid-cols-12 col-span-12 lg:gap-8 z-10 ">
                     {data.map((e, i) => {
                         return (
                             <motion.div
@@ -120,7 +123,7 @@ const CoursesOverview = () => {
                                 whileInView="visible"
                                 variants={slideInFromBottom(0.2 * i)}
                                 viewport={{ once: false, amount: 0.5 }}
-                                className="col-span-3 z-10 2xl:h-[38svh]"
+                                className="col-span-6 lg:col-span-3 z-10 2xl:h-[38svh]"
                             >
                                 <Link href="/courses">
                                     <CatCard
