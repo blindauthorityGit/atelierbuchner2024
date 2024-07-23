@@ -69,7 +69,7 @@ const BasicGallery = ({ data }) => {
                 {data.map((e, i) => {
                     return (
                         <motion.div
-                            className="col-span-3 h-auto z-10 relative"
+                            className="col-span-6 h-auto z-10 relative"
                             initial="hidden"
                             whileInView="visible"
                             variants={slideInFromLeft(0.2)}

@@ -14,8 +14,8 @@ import Benefits from "../../sections/benefits";
 import Booking from "../../sections/booking";
 //LAYOUT
 import MainContainer from "../../components/layout/mainContainer";
+import Divider from "../../components/layout/divider";
 
-// import GradientDiv from "../components/layout/gradientDiv";
 //ASSETS
 import Bild1 from "../../assets/test/akadamie/1.JPG";
 import Bild2 from "../../assets/test/akadamie/2.JPG";
@@ -113,14 +113,15 @@ export default function Courses({ data, lenisRef }) {
                         mainText="Jetzt anmelden"
                     />
                     <BasicText klasse="xl:!pb-0"></BasicText>
-                    <BasicGallery data={bilder}></BasicGallery>
+                    {/* <BasicGallery data={bilder}></BasicGallery> */}
+                    <Divider></Divider>
                     <CourseList ablauf={ablauf} details={details}></CourseList>
                     <Benefits data={benefits}></Benefits>
                     <BasicTextImage></BasicTextImage>
                 </MainContainer>
                 <div className="bg-primaryColor-100 w-full relative z-20">
                     <div className="bg-primaryColor-50 w-full container mx-auto">
-                        <Booking></Booking>
+                        <Booking mainLink="/booking?kurs=herbstakademie" mainText="Jetzt anmelden"></Booking>
                     </div>
                 </div>
                 <MainContainer></MainContainer>

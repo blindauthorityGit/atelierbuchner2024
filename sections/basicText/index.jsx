@@ -74,7 +74,7 @@ const BasicText = ({ klasse }) => {
                     initial="hidden"
                     whileInView="visible"
                     variants={slideInFromLeft(0.2)}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     <H2 klasse="lg:ml-[-8rem]">
                         <span className="">AKADEMIEN IM ZYKLUS</span>

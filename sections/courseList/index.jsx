@@ -41,7 +41,7 @@ const CourseList = ({ ablauf, details }) => {
                 parallaxRef2.current,
                 { y: 0 },
                 {
-                    y: "-50%",
+                    y: "-20%",
                     ease: "none",
                     scrollTrigger: {
                         trigger: parallaxRef2.current,
@@ -68,13 +68,13 @@ const CourseList = ({ ablauf, details }) => {
     return (
         <>
             <SectionContainer klasse="gap-4 px-4 lg:px-0 mb-12 2xl:mb-24">
-                <div className="hidden lg:block col-span-3"></div>
+                <div className="hidden lg:block col-span-2"></div>
                 <motion.div
-                    className="col-span-12 lg:col-span-6 h-auto z-10"
+                    className="col-span-12 lg:col-span-8 h-auto z-10"
                     initial="hidden"
                     whileInView="visible"
                     variants={slideInFromLeft(0.2)}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     <Ablauf data={ablauf}></Ablauf>
                     <div className="xl:h-24 mt-12 lg:mt-0"></div>

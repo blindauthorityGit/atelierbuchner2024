@@ -5,6 +5,7 @@ import SectionContainer from "../../components/layout/sectionContainer";
 import { Benefit } from "../../components/benefit";
 import { CoverImage } from "../../components/images";
 import { IconText } from "../../components/icons";
+import { MainButton } from "../../components/buttons";
 
 // ANIMATION
 import { motion, useInView } from "framer-motion";
@@ -22,7 +23,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const Booking = ({ data }) => {
+const Booking = ({ data, mainLink, mainText }) => {
     const parallaxRef2 = useRef(null);
 
     useEffect(() => {
@@ -80,6 +81,10 @@ const Booking = ({ data }) => {
                             link="mailto:christine@atelierbucher.at"
                             text="christine@atelierbuchner.at"
                         ></IconText>
+                        <hr></hr>
+                        <MainButton klasse="xl:mt-16" href={mainLink}>
+                            {mainText}
+                        </MainButton>
                     </div>
                 </div>
                 <div className="col-span-6 relative">

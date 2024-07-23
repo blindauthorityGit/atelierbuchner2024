@@ -85,30 +85,24 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
 
     return (
         <>
-            <SectionContainer klasse="md:grid-rows-none  smooth-content">
-                <div className="col-span-12 pt-14 lg:pt-0 lg:col-span-5 flex flex-col lg:justify-center xl:pl-24 z-20">
-                    <div className=" pt-4 lg:pt-0 lg:text-right px-4 lg:px-0 xl:bottom-[18.12svh] top-auto 3xl:right-[0svh] 3xl:top-[28svh] z-10">
-                        <H4 klasse="lg:right-0 hidden lg:pr-16 !mb-0 lg:mb-6 !font-black">02. - 06.02.2024</H4>
+            <SectionContainer klasse="md:grid-rows-none  smooth-content" fullHeight>
+                <div className="col-span-12 pt-8 lg:pt-0 lg:col-span-5 flex flex-col justify-end xl:pl-24 z-20">
+                    <div className="xl:absolute lg:text-right px-4 lg:px-0 xl:bottom-[18.12svh] top-auto 3xl:right-[0svh] 3xl:top-[28svh] z-10">
+                        <H4 klasse="lg:right-0 lg:pr-16 !mb-0 lg:mb-6 !font-black">02. - 06.02.2024</H4>
 
-                        <H1 klasse="text-left  !font-bold">
-                            <span className="text-[4rem] lg:text-9xl !leading-[0.75]">
-                                Frühlings
-                                <br />
-                                akademie
-                                <br />
-                                2024
-                            </span>
+                        <H1 klasse="text-left">
+                            <span className="font-thin text-4xl lg:text-8xl">Frühlingsakademie 2024</span>
                         </H1>
                     </div>
-                    <div className="  lg:pt-16 xl:pt-0 px-4 lg:px-0 z-10">
+                    <div className="  3xl:top-[69.7svh]  xl:h-2/4 lg:pt-16 xl:pt-0 px-4 lg:px-0 z-10">
                         <H4 klasse="xl:pr-16 ">4 Tage Studium des menschlichen Gesichtes</H4>
-                        <P klasse="hidden lg:block">
+                        <P>
                             Step into a world of art, where creativity and expression come
                             <br /> together tocreate a symphony of beauty Step into a world of art, where creativity and
                         </P>
 
                         {buttons ? (
-                            <div className="lg:flex hidden  mt-8 lg:mt-16 flex-grow w-full  sm:space-y-0 sm:space-x-4">
+                            <div className="lg:flex mt-8 lg:mt-16 flex-grow w-full  sm:space-y-0 sm:space-x-4">
                                 <GhostButton klasse="flex-grow mb-4 lg:mb-0" link={ghostLink} noMargin>
                                     {ghostText}
                                 </GhostButton>
@@ -129,7 +123,7 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
                     </div> */}
                 </div>
                 <div
-                    className={`col-span-12 lg:col-span-7 lg:order-first lg:px-0 z-10 ${
+                    className={`col-span-12 lg:col-span-7 order-first lg:px-0 z-10 ${
                         darken ? "mix-blend-darken" : null
                     }`}
                 >
@@ -138,7 +132,7 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
                             console.log("loaded noinoenoen");
                         }}
                         speed={1.8}
-                        className="top-[-2rem] hidden lg:block lg:top-[3.58svh] w-[100svw] lg:w-[44svw] lg:h-[60svh] z-20 xl:z-0 xl:w-[51svw] xl:top-[-6svh] relative"
+                        className="top-[-2rem] lg:top-[3.58svh] w-[100svw] lg:w-[44svw] lg:h-[60svh] z-20 xl:z-0 xl:w-[51svw] xl:top-[-6svh] relative"
                     >
                         <Swiper
                             // install Swiper modules
@@ -170,28 +164,18 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
                             })}
                         </Swiper>
                     </Parallax>
-
-                    <CoverImage
-                        src={data[0].src}
-                        mobileSrc={data[0].src}
+                    {/* <CoverImage
+                        src={Hero.src}
+                        mobileSrc={Hero.src}
                         alt="Cover Background"
-                        klasse={""}
-                        style={{ aspectRatio: "16/10" }}
-                        className="w-full relative lg:hidden h-[42svh]"
-                    />
-                </div>
-                <div className="col-span-12 px-4 lg:hidden block  ">
-                    {buttons ? (
-                        <div className="mt-2 lg:mt-16 flex-grow w-full  sm:space-y-0 sm:space-x-4">
-                            <MainButton klasse="bg-darkGrey flex-grow" link={mainLink}>
-                                {mainText}
-                            </MainButton>
-                        </div>
-                    ) : null}
-                </div>
+                        klasse={"absolute top-[8.42svh]"}
+                        style={{ aspectRatio: "0.93/1" }}
+                        className="w-full relative top-[8.42svh]"
+                    /> */}
+                </div>{" "}
                 <div
                     ref={parallaxRef}
-                    className="bg-primaryColor-100 absolute w-[40%] 3xl:w-[26.64svw] right-4 h-[25svh] 3xl:h-[38.9svh] 3xl:left-[-2.97svw] top-[14svh] 3xl:top-[20svh]"
+                    className="bg-primaryColor-100 absolute w-full 3xl:w-[26.64svw] h-[25svh] 3xl:h-[38.9svh] 3xl:left-[-2.97svw] top-[14svh] 3xl:top-[20svh]"
                 ></div>
             </SectionContainer>
         </>
