@@ -13,6 +13,7 @@ import Hero3 from "../../assets/test/kurs2.jpg";
 import Hero4 from "../../assets/test/kurs3_1.jpg";
 import Hero5 from "../../assets/test/hero5.jpg";
 import Hero6 from "../../assets/test/hero6.jpg";
+import Hero7 from "../../assets/test/akadamie/3.JPG";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y, Navigation } from "swiper";
@@ -40,7 +41,7 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
     const [swiper, setSwiper] = useState(null);
     const [isLastSlideLeft, setIsLastSlideLeft] = useState(true);
     const [isLastSlideRight, setIsLastSlideRight] = useState(false);
-    const [data, setDate] = useState([Hero5]);
+    const [data, setDate] = useState([Hero7]);
 
     const parallaxRef = useRef(null);
 
@@ -85,7 +86,7 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
 
     return (
         <>
-            <SectionContainer klasse="md:grid-rows-none  smooth-content" fullHeight>
+            <SectionContainer klasse="md:grid-rows-none  smooth-content pb-8" fullHeight>
                 <div className="col-span-12 pt-14 lg:pt-0 lg:col-span-5 flex flex-col lg:justify-center xl:pl-24 z-20">
                     <div className=" pt-4 lg:pt-0 lg:text-right px-4 lg:px-0 xl:bottom-[18.12svh] top-auto 3xl:right-[0svh] 3xl:top-[28svh] z-10">
                         <H4 klasse="lg:right-0 hidden lg:pr-16 !mb-0 lg:mb-6 !font-black">02. - 06.02.2024</H4>
@@ -101,7 +102,7 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
                         </H1>
                     </div>
                     <div className="  lg:pt-16 xl:pt-0 px-4 lg:px-0 z-10">
-                        <H4 klasse="xl:pr-16 !mb-0">4 Tage Studium des menschlichen Gesichtes</H4>
+                        <H4 klasse="xl:pr-16 !mb-0 !font-thin">4 Tage Studium des menschlichen Gesichtes</H4>
                         <P klasse="hidden lg:block">
                             Step into a world of art, where creativity and expression come
                             <br /> together tocreate a symphony of beauty Step into a world of art, where creativity and
@@ -177,7 +178,7 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
                         alt="Cover Background"
                         klasse={""}
                         style={{ aspectRatio: "16/9" }}
-                        className="w-full relative lg:hidden h-[42svh]"
+                        className="w-full relative lg:hidden h-[44svh]"
                     />
                 </div>
                 <div className="col-span-12 px-4 lg:hidden block  ">
