@@ -41,7 +41,7 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
     const [swiper, setSwiper] = useState(null);
     const [isLastSlideLeft, setIsLastSlideLeft] = useState(true);
     const [isLastSlideRight, setIsLastSlideRight] = useState(false);
-    const [data, setDate] = useState([Hero5]);
+    const [data, setDate] = useState([Hero4]);
 
     const parallaxRef = useRef(null);
 
@@ -87,17 +87,17 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
     return (
         <>
             <SectionContainer klasse="md:grid-rows-none  smooth-content pb-8" fullHeight>
-                <div className="col-span-12 pt-16 lg:pt-0 lg:col-span-5 flex flex-col lg:justify-center z-20">
+                <div className="col-span-12 pt-14 lg:pt-0 lg:col-span-5 flex flex-col lg:justify-center z-20">
                     <div className=" pt-4 lg:pt-0 lg:mb-8  lg:text-right px-4 lg:px-0 xl:bottom-[18.12svh] top-auto 3xl:right-[0svh] 3xl:top-[28svh] z-10">
                         <H4 klasse="lg:right-0 hidden lg:pr-16 !mb-0 lg:mb-6 !font-black">02. - 06.02.2024</H4>
 
                         <H1 klasse="text-left  !font-bold lg:!font-thin">
-                            <span className="text-[3.25rem] lg:text-9xl !leading-[0.75]">
+                            <span className="text-[3.75rem] lg:text-9xl !leading-[0.75]">
                                 Frühlings
                                 <br />
                                 akademie
                                 <br />
-                                <span className="text-accentPurple">2024</span>
+                                2024
                             </span>
                         </H1>
                     </div>
@@ -194,7 +194,7 @@ const HeroSection = ({ darken, buttons, ghostLink, mainLink, ghostText, mainText
                 </div>
                 <div
                     ref={parallaxRef}
-                    className="bg-primaryColor-100 absolute w-[50%] 3xl:w-[26.64svw] right-4 h-[28svh] 3xl:h-[38.9svh] 3xl:left-[-2.97svw] top-[14svh] 3xl:top-[20svh]"
+                    className="bg-primaryColor-100 absolute w-[40%] 3xl:w-[26.64svw] right-4 h-[25svh] 3xl:h-[38.9svh] 3xl:left-[-2.97svw] top-[14svh] 3xl:top-[20svh]"
                 ></div>
             </SectionContainer>
         </>

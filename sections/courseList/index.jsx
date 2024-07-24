@@ -67,7 +67,7 @@ const CourseList = ({ ablauf, details }) => {
 
     return (
         <>
-            <SectionContainer klasse="gap-4 px-4 lg:px-0 mb-12 2xl:mb-24">
+            <SectionContainer klasse="gap-4 px-4 lg:px-0 mb-12 2xl:mb-24 ">
                 <div className="hidden lg:block col-span-2"></div>
                 <motion.div
                     className="col-span-12 lg:col-span-8 h-auto z-10"

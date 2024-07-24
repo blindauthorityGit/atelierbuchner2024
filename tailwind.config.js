@@ -66,6 +66,9 @@ module.exports = {
                 darkGrey: {
                     DEFAULT: "#393836",
                 },
+                accentPurple: {
+                    DEFAULT: "#9D7CA1",
+                },
             },
             gridRow: {
                 "span-1": "span 1 / span 1",
