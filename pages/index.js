@@ -18,24 +18,25 @@ export default function Home() {
 
     return (
         <>
-            <>
-                <MainContainer id="main-container">
+            {" "}
+            <div className="bg-primaryColor-100 w-full relative z-20">
+                <MainContainer id="main-container" klasse="bg-primaryColor-100">
                     <MainHeroSection />
-                </MainContainer>
-                {/* <GradientDiv /> */}
-                <div className="block h-48"></div>
-                <div className="bg-primaryColor-50 w-full relative z-20">
-                    <div className="bg-primaryColor-50 w-full container mx-auto">
-                        <CoursesOverview />
-                    </div>
-                </div>
-                <CoursesOverview />
-                {/* More sections */}
-                {/* <BioOverview /> */}
-                <MainContainer>
+                </MainContainer>{" "}
+            </div>
+            {/* <GradientDiv /> */}
+            <div className="block h-48 bg-primaryColor-100"></div>
+            <div className="bg-primaryColor-50 w-full relative z-20">
+                <div className="bg-primaryColor-50 w-full container mx-auto">
                     <CoursesOverview />
-                </MainContainer>
-            </>
+                </div>
+            </div>
+            <CoursesOverview />
+            {/* More sections */}
+            {/* <BioOverview /> */}
+            <MainContainer>
+                <CoursesOverview />
+            </MainContainer>
         </>
     );
 }

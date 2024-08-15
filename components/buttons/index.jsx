@@ -5,3 +5,4 @@ export { default as GhostButtoSmall } from "./ghostButtonSmall";
 export { default as MainButton } from "./mainButton";
 export { default as MainButtonNOLink } from "./mainButtonNOLink";
 export { default as TextButton } from "./textButton";
+export { default as GeneralNavButton } from "./generalNavButton";

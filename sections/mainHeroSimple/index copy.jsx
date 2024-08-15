@@ -11,9 +11,14 @@ import { H1, P } from "../../components/typography";
 //ASSETS
 import Hero2 from "../../assets/test/hero2.jpg";
 import Hero3 from "../../assets/test/hero3.jpg";
-import Hero4 from "../../assets/test/hero4.jpg";
-import Hero5 from "../../assets/test/hero5.jpg";
-import Hero6 from "../../assets/test/hero6.jpg";
+import Hero4 from "../../assets/test/heroNew2.jpg";
+import Hero5 from "../../assets/test/heroNew3.jpg";
+import Hero6 from "../../assets/test/heroNew4.jpg";
+import Hero7 from "../../assets/test/heroNew5.jpg";
+import Hero8 from "../../assets/test/heroNew6.jpg";
+import Hero9 from "../../assets/test/heroNew7.jpg";
+import Hero10 from "../../assets/test/heroNew8.jpg";
+import Hero11 from "../../assets/test/heroNew9.jpg";
 import Chevron from "../../assets/icons/chevron.svg";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -37,20 +42,37 @@ gsap.registerPlugin(ScrollTrigger);
 
 //HOOKS
 import useDimension from "../../hooks/useDimension";
+import useFadeOutOnScroll from "../../hooks/useFadeOutOnScroll";
 
 const MainHeroSection = () => {
     const [swiper, setSwiper] = useState(null);
     const [isLastSlideLeft, setIsLastSlideLeft] = useState(true);
     const [isLastSlideRight, setIsLastSlideRight] = useState(false);
-    const [data, setDate] = useState([Hero2, Hero3, Hero4, Hero5, Hero6]);
+    const [data, setDate] = useState([Hero3, Hero4, Hero5, Hero6, Hero7, Hero8, Hero9, Hero10, Hero11]);
+
+    const [scrollY, setScrollY] = useState(0);
 
     const parallaxRef = useRef(null);
-    const headlineRef = useRef(null);
+    const elementRef = useRef(null);
+    const h1Ref = useRef(null);
+    const opacity = useFadeOutOnScroll(h1Ref);
 
-    const { height } = useDimension();
+    const { width, height } = useDimension();
+
+    const handleScroll = () => {
+        setScrollY(window.scrollY);
+    };
 
     useEffect(() => {
-        console.log(height);
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    useEffect(() => {
+        console.log(height, width);
     }, [height]);
 
     useEffect(() => {
@@ -86,18 +108,30 @@ const MainHeroSection = () => {
         };
     }, []);
 
+    const greyscaleValue = Math.min(scrollY / 1000, 1); // Adjust the divisor to control the sensitivity
+    const blurValue = Math.min(scrollY / 100, 10); // Adjust the divisor and max value as needed
+    const scaleValue = 1 + Math.min(scrollY / 5000, 0.05); // Adjust the divisor and max value for scaling
+    const translateXValue = -Math.min(scrollY / 2, 500); // Adjust the divisor and max value for sliding out
+    const fadeOutValue = 1 - Math.min(scrollY / 1000, 1); // Adjust the divisor to control the opacity
+
     return (
         <>
             <SectionContainer klasse="md:grid-rows-none grid-rows-[auto_1fr] smooth-content" fullHeight>
-                <div className="col-span-12 lg:col-span-12 flex flex-col items-center justify-center lg:order-first w-full relative 2xl:h-[66svh]">
-                    <div ref={headlineRef} className=" px-4 lg:px-0   z-10">
-                        <H1 klasse="2xl:text-9xl text-center">
-                            <span className="">King-of-Saxony</span>
+                <div className="col-span-12 lg:col-span-4 lg:order-first 2xl:pl-28">
+                    <div
+                        style={{
+                            opacity: fadeOutValue,
+                            transform: `translateX(${translateXValue + "px"})`,
+                        }}
+                        className="fixed px-4 lg:px-0 bottom-[14svh] xl:bottom-[18.12svh] top-auto 3xl:top-[48svh] z-20"
+                    >
+                        <H1 klasse="text-white lg:text-darkGrey 2xl:!text-[12rem]" ref={h1Ref}>
+                            <span className="font-thin">King-of-Saxony</span>
                             <br />
                             Bird-of-Paradise
                         </H1>
                     </div>
-                    <div className="absolute hidden lg:flex 3xl:top-[69.7svh]  justify-between w-2/4 z-10">
+                    <div className="fixed hidden lg:flex 3xl:top-[69.7svh]  justify-between w-2/4 z-10">
                         <P>
                             Step into a world of art, where creativity and expression come
                             <br /> together tocreate a symphony of beauty
@@ -121,36 +155,28 @@ const MainHeroSection = () => {
                             />
                         </div>
                     </div>
-                    <div className="wrapper   3xl:top-[87.7svh] justify-between relative hidden lg:flex pr-36">
-                        <div className="left text-sm font-body ">
-                            Atelier Buchner | Prof. Sepp Buchner Straße 528 <br />
-                            office@atelierbuchner.at
-                        </div>{" "}
-                        <MainButton aklass="" link="/gallery">
+                    <div className="wrapper bottom-[6svh] lg:bottom-auto 3xl:top-[87.7svh] fixed z-20 lg:z-10 flex justify-center lg:justify-between w-full px-4 lg:px-0">
+                        {/* <!-- 
+    <div className="left text-sm font-body ">
+        Atelier Buchner | Prof. Sepp Buchner Straße 528 <br />
+        office@atelierbuchner.at
+    </div> 
+    --> */}
+                        <MainButton aklass="" klasse="w-[90svw] lg:w-auto " link="/gallery">
                             Alle Bilder
                         </MainButton>
                     </div>
-                    <div
-                        ref={parallaxRef}
-                        className="bg-primaryColor-100 absolute w-full 3xl:w-[13.64svw] h-[25svh] 3xl:h-[28.9svh] 3xl:left-[20.97svw] top-[25svh] 3xl:top-[39svh]"
-                    ></div>
                 </div>
-                <div className="col-span-12 grid grid-cols-12">
-                    <div className="col-span-4">ZES</div>
-                    <div className="col-span-4">
-                        <CoverImage
-                            src={Hero2.src}
-                            mobileSrc={Hero2.src}
-                            alt="Cover Background"
-                            klasse={"absolute top-[8.42svh]"}
-                            style={{ aspectRatio: "1/1" }}
-                            className="w-full relative "
-                        />
-                    </div>
-                    <div className="col-span-4">ZES</div>
-                </div>
-                <div className="col-span-12 lg:col-span-12 hidden order-first lg:order-last px-[40px] lg:px-0">
-                    <Parallax speed={1.8} className="top-[3.58svh] z-20 xl:z-0 xl:top-[-8.42svh] relative">
+                <div className="col-span-12 lg:col-span-8 order-first lg:order-last px-[40px] lg:px-0">
+                    <Parallax
+                        speed={1.2}
+                        style={{
+                            width: width <= 420 ? width + "px" : width * 0.64584 + "px",
+                            // transform: ` scale(${scaleValue})`,
+                            filter: `grayscale(${greyscaleValue}) blur(${blurValue}px)`,
+                        }}
+                        className="top-[3.58svh] h-[100svh] xl:h-auto left-0 xl:left-auto fixed z-20 xl:z-0 xl:top-[-16.42svh] "
+                    >
                         <Swiper
                             // install Swiper modules
                             modules={[Pagination, Navigation, A11y]}
@@ -172,6 +198,9 @@ const MainHeroSection = () => {
                             {data.map((e, i) => {
                                 return (
                                     <SwiperSlide key={`viewAllSlide${i}`} className="">
+                                        <div className="text-white hidden lg:block absolute bottom-48 right-24 z-20 font-body tracking-wider text-sm">
+                                            Name des Bilder | 2024
+                                        </div>
                                         <HeroElement image={e} mobileImage={e}></HeroElement>
                                     </SwiperSlide>
                                 );
@@ -187,6 +216,10 @@ const MainHeroSection = () => {
                         className="w-full relative top-[8.42svh]"
                     /> */}
                 </div>{" "}
+                <div
+                    ref={parallaxRef}
+                    className="bg-primaryColor-100 absolute w-full 3xl:w-[13.64svw] h-[25svh] 3xl:h-[59.9svh] 3xl:left-[-2.97svw] top-[25svh] 3xl:top-[36svh]"
+                ></div>
             </SectionContainer>
         </>
     );

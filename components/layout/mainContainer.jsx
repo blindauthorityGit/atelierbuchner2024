@@ -1,9 +1,9 @@
 // components/layout/MainContainer.js
 import React from "react";
 
-const MainContainer = React.forwardRef(({ children, width, id, ...props }, ref) => {
+const MainContainer = React.forwardRef(({ children, width, id, klasse, ...props }, ref) => {
     return (
-        <main ref={ref} id={id} className={`m-auto container ${width}`} {...props}>
+        <main ref={ref} id={id} className={`m-auto container ${klasse} ${width}`} {...props}>
             {children}
         </main>
     );

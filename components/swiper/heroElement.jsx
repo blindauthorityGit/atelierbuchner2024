@@ -11,7 +11,7 @@ const HeroElement = ({ image, mobileImage, aspectRatio }) => {
                 alt="Cover Background"
                 klasse={"absolute "}
                 // style={{ }}
-                className="w-full !aspect-[9/16] lg:!aspect-[1/1]"
+                className="w-full !aspect-[9/16] lg:!aspect-[1/0.98]"
             />
         </div>
     );

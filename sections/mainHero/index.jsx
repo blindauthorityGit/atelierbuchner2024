@@ -90,8 +90,8 @@ const MainHeroSection = () => {
             <SectionContainer klasse="md:grid-rows-none grid-rows-[auto_1fr] smooth-content" fullHeight>
                 <div className="col-span-12 lg:col-span-6 lg:order-first">
                     <div className="absolute px-4 lg:px-0 bottom-[18.12svh] top-auto 3xl:top-[48svh] z-10">
-                        <H1>
-                            <span className="font-thin">King-of-Saxony</span>
+                        <H1 klasse="xl:!text-9xl">
+                            <span className="font-thin">King-of-Saxonye</span>
                             <br />
                             <span className="font-bold ml-6">Bird-of-Paradise</span>
                         </H1>
