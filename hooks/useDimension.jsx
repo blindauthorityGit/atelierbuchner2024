@@ -6,8 +6,8 @@ const useDimension = () => {
     useEffect(() => {
         const updateDimension = () => {
             setDimension({
-                width: window.innerWidth,
-                height: window.innerHeight,
+                width: document.documentElement.clientWidth,
+                height: document.documentElement.clientHeight,
             });
         };
 
