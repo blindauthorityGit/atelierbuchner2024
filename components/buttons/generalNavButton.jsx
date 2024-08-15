@@ -1,6 +1,6 @@
 import React from "react";
 
-import ArrowButtonBlack from "../../assets/icons/arrowBtnBlack.svg";
+import ArrowButtonBlack from "../../assets/icons/ArrowBtnBlack.svg";
 
 const GeneralNavButton = ({ direction, onClick }) => {
     return (
