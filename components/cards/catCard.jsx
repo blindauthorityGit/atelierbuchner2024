@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
+//HOOKS
+import useDimension from "../../hooks/useDimension";
+
 const CatCard = ({ klasse, title, subline, image, speed, ...props }) => {
     // State to track hover status
     const [isHovered, setIsHovered] = useState(false);
+    const { width, height } = useDimension();
 
     // Variants for the child animation
     const hovering = {
@@ -18,7 +22,12 @@ const CatCard = ({ klasse, title, subline, image, speed, ...props }) => {
             style={{ backgroundImage: `url(${image})` }}
             onHoverStart={() => setIsHovered(true)} // Update state to true when hovered
             onHoverEnd={() => setIsHovered(false)} // Update state to false when not hovered
-            initial={{ filter: "grayscale(100%)", scale: 1, backgroundSize: "150%", backgroundPosition: "center" }}
+            initial={{
+                filter: width > 420 ? "grayscale(100%)" : null,
+                scale: 1,
+                backgroundSize: "150%",
+                backgroundPosition: "center",
+            }}
             whileHover={{ filter: "grayscale(0%)", scale: 1.15, backgroundSize: "125%" }}
             transition={{ duration: 0.6 }}
         >

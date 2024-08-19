@@ -4,10 +4,10 @@ import Link from "next/link";
 import MainHero from "../../components/hero/mainHero";
 import SectionContainer from "../../components/layout/sectionContainer";
 import { CatCard } from "../../components/cards";
-import { MainButton, GhostButton } from "../../components/buttons";
+import { MainButton, GhostButton, TextButton } from "../../components/buttons";
 import { HeroElement } from "../../components/swiper";
 //TYPO
-import { H1, H2, H4, P } from "../../components/typography";
+import { H1, H2, H3, H4, P } from "../../components/typography";
 //ASSETS
 import Hero2 from "../../assets/test/kurs3.jpg";
 import Hero3 from "../../assets/test/hero3.jpg";
@@ -38,7 +38,7 @@ import useDimension from "../../hooks/useDimension";
 // ANIMATION
 import ParallaxElement from "../../animations/parallax/parallaxElement";
 
-const CoursesOverview = () => {
+const CoursesOverview = ({ noBtn }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
     const [data, setDate] = useState([Hero2, Hero3, Hero4, Hero5]);
@@ -88,24 +88,21 @@ const CoursesOverview = () => {
 
     return (
         <>
-            <SectionContainer
-                klasse="gap-4 grid-rows-[auto_1fr] px-4 lg:px-0 pt-12 lg:pt-48 3xl:pb-20 4xl:pb-48"
-                fullHeight
-            >
+            <SectionContainer klasse="gap-4 bg-primaryColor-50 z-20 grid-rows-[auto_1fr] px-4 lg:px-0 py-12 lg:py-36 pt-12 lg:pt-48 3xl:pb-20 4xl:pb-48">
                 <motion.div
                     className="col-span-12 lg:col-span-6 h-auto z-10"
                     initial="hidden"
                     whileInView="visible"
                     variants={slideInFromLeft(0.2)}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                 >
                     <H2 klasse="">
-                        <span className="">AKADEMIEN IM ZYKLUS</span>
+                        <span className="">Akademien im Zyklus</span>
                         <br />
-                        <span>DER JAHRESZEITEN</span>
+                        <span>der Jahreszeiten</span>
                     </H2>
                 </motion.div>
-                <div className="col-span-12 lg:col-span-6 h-auto z-10">
+                <div className="col-span-12 lg:col-span-6 hidden lg:block h-auto z-10">
                     <P>
                         Lorem ipsum dolor sit amet consectetur. Risus eget eleifend porttitor quis mattis tellus. Sed
                         ultrices cras lectus rhoncus. Dui convallis neque nulla tortor pellentesque quis scelerisque.
@@ -114,7 +111,7 @@ const CoursesOverview = () => {
                         interdum.
                     </P>
                 </div>
-                <div className="lg:px-24 grid grid-cols-12 col-span-12 lg:gap-8 z-10 ">
+                <div className="lg:px-24 grid grid-cols-12 col-span-12 lg:gap-8 z-10 bg-primaryColor-50">
                     {data.map((e, i) => {
                         return (
                             <motion.div
@@ -122,44 +119,46 @@ const CoursesOverview = () => {
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={slideInFromBottom(0.2 * i)}
-                                viewport={{ once: false, amount: 0.5 }}
-                                className="col-span-6 lg:col-span-3 z-10 2xl:h-[38svh]"
+                                viewport={{ once: true, amount: 0.5 }}
+                                className="col-span-12 lg:col-span-3 z-10 mb-8 lg:mb-0"
                             >
-                                <Link href="/courses">
-                                    <CatCard
-                                        // data-scroll
-                                        // data-scroll-speed={i + 2}
-                                        klasse="col-span-3 z-10"
-                                        title="TEST"
-                                        subline="test"
-                                        image={e.src}
-                                        // onHoverStart={() => handleHoverStart(i)}
-                                        // onHoverEnd={handleHoverEnd}
-                                        // animate={{
-                                        //     scale: hoveredIndex === i ? 1.1 : hoveredIndex === null ? 1 : 0.9,
-                                        //     filter: hoveredIndex === null || hoveredIndex === i ? "none" : "blur(4px)",
-                                        // }}
-                                        // transition={{ duration: 0.3 }}
-                                    ></CatCard>
-                                    <H4 klasse="!mb-0 mt-2">Sommerakademie</H4>
-                                    <div className=" w-full">
-                                        <div className="left">
-                                            <P klasse="font-bold">01.-05.02.2024</P>{" "}
-                                        </div>
-                                        <div className="right mt-2">
-                                            <P>Faszination Pigmente</P>
-                                        </div>
+                                <CatCard
+                                    // data-scroll
+                                    // data-scroll-speed={i + 2}
+                                    klasse="col-span-12 z-10 !h-[33svh] 2xl:!h-[42svh]"
+                                    title="TEST"
+                                    subline="test"
+                                    image={e.src}
+                                    // onHoverStart={() => handleHoverStart(i)}
+                                    // onHoverEnd={handleHoverEnd}
+                                    // animate={{
+                                    //     scale: hoveredIndex === i ? 1.1 : hoveredIndex === null ? 1 : 0.9,
+                                    //     filter: hoveredIndex === null || hoveredIndex === i ? "none" : "blur(4px)",
+                                    // }}
+                                    // transition={{ duration: 0.3 }}
+                                ></CatCard>
+                                <H3 klasse="!mb-0 mt-2 lg:mt-4">Sommerakademie</H3>
+                                <div className=" w-full">
+                                    <div className="left">
+                                        <P klasse="font-bold">01.-05.02.2024</P>{" "}
                                     </div>
-                                </Link>
+                                    <div className="right mt-2">
+                                        <P>Faszination Pigmente</P>
+                                    </div>
+                                    <TextButton link="">Infos & Anmeldung</TextButton>
+                                </div>
                             </motion.div>
                         );
                     })}
-                </div>{" "}
-                <div className="col-span-12 flex justify-center">
-                    <GhostButton klasse="mt-8" link="/gallery">
-                        Alle Bilder
-                    </GhostButton>
                 </div>
+                {noBtn ? null : (
+                    <div className="col-span-12 flex justify-center">
+                        <GhostButton klasse="mt-8" link="/gallery">
+                            Alle Bilder
+                        </GhostButton>
+                    </div>
+                )}
+
                 <div
                     ref={parallaxRef2}
                     className="bg-primaryColor-100 absolute 3xl:w-[26.6svw] 3xl:h-[43svh] 3xl:left-[11.9svw] 3xl:top-[14svh]"

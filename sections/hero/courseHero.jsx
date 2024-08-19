@@ -23,6 +23,7 @@ import Hero10 from "../../assets/test/heroNew8.jpg";
 import Hero11 from "../../assets/test/heroNew9.jpg";
 import Chevron from "../../assets/icons/chevron.svg";
 import ArrowButton from "../../assets/icons/arrowButton.svg";
+import Quotes from "../../assets/icons/quotes.svg";
 // SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y, Navigation } from "swiper";
@@ -129,14 +130,15 @@ const CourseHero = () => {
                             opacity: fadeOutValue,
                             transform: `translateX(${translateXValue + "px"})`,
                         }}
-                        className="fixed px-4 lg:px-0 bottom-[15svh] xl:bottom-auto top-auto 3xl:top-[23svh] z-20"
+                        className="fixed px-4 lg:px-0 bottom-[13svh] xl:bottom-auto top-auto 3xl:top-[23svh] z-20"
                     >
                         <H1 klasse="text-darkGrey 2xl:!text-[10rem]" ref={h1Ref}>
                             <div className="font-thin">Kunst</div>
 
                             <div className="pl-12 mt-[-0.75rem] 2xl:pl-20 2xl:mt-[-1.86rem]"> Schaffen</div>
                         </H1>
-                        <div className=" lg:hidden flex-col 3xl:top-[60.2svh] xl:ml-56 justify-between lg:w-1/4 xl:w-[15svw] z-10">
+                        <div className=" lg:hidden flex-col 3xl:top-[58.2svh] xl:ml-56 justify-between lg:w-1/4 xl:w-[15svw] z-10">
+                            <img className="w-6 mb-2" src={Quotes.src} alt="" />
                             {/* <div className="lg:text-9xl font-headline text-primaryColor-300">"</div> */}
                             <P>
                                 Mit professioneller Anleitung verwandeln Sie Ihre Kreativität in beeindruckende Kunst
@@ -145,7 +147,8 @@ const CourseHero = () => {
                         </div>
                     </div>
                     <div className="fixed hidden lg:flex flex-col 3xl:top-[60.2svh] xl:ml-56 justify-between lg:w-1/4 xl:w-[15svw] z-10">
-                        {/* <div className="lg:text-9xl font-headline text-primaryColor-300">"</div> */}
+                        <img className="w-12 mb-6" src={Quotes.src} alt="" />
+
                         <P>
                             Mit professioneller Anleitung verwandeln Sie Ihre Kreativität in beeindruckende Kunst und
                             erleben künstlerische Erfolge.
@@ -180,7 +183,7 @@ const CourseHero = () => {
                             height: width <= 420 ? height * 0.3873 + "px" : null,
                             filter: `grayscale(${greyscaleValue}) blur(${blurValue}px)`,
                         }}
-                        className="top-[11svh]  opacity-85 xl:top-[-0rem]  xl:h-auto  xl:left-auto fixed z-20 xl:z-0  "
+                        className="top-[8svh]  opacity-85 xl:top-[-0rem]  xl:h-auto  xl:left-auto fixed z-20 xl:z-0  "
                     >
                         <div className="relative">
                             {/* <div className="w-full lg:hidden block h-full absolute z-20 opacity-100 bg-gradient-to-t from-darkGrey via-transparent to-transparent"></div> */}
@@ -191,7 +194,7 @@ const CourseHero = () => {
                                 klasse={"absolute "}
                                 style={{
                                     width: width <= 420 ? width * 0.5375 + "px" : width * 0.3541 + "px",
-                                    height: width <= 420 ? height * 0.3873 + "px" : null,
+                                    height: width <= 420 ? height * 0.4073 + "px" : null,
                                 }}
                                 className="w-full aspect-[1/1.3] lg:!aspect-[1/1.3] "
                             />
@@ -224,6 +227,17 @@ const CourseHero = () => {
                             />
                         </div>
                     </Parallax>
+                </div>
+                <div className="col-span-12 flex lg:hidden justify-center   pb-2">
+                    {/* <p className="text-xs block text-primaryColor-400"> Scroll for more</p> */}
+                    <img
+                        style={{
+                            opacity: fadeOutValue,
+                        }}
+                        src={Chevron.src}
+                        className="rotate-[270deg] fixed bottom-4"
+                        alt=""
+                    />
                 </div>
 
                 <div

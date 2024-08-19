@@ -13,7 +13,7 @@ const SwiperGallery = ({ data }) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <SectionContainer klasse="gap-8 pb-36 px-4 lg:px-36">
+        <SectionContainer klasse="gap-8 pb-36 px-4 ">
             <Swiper
                 effect={"creative"}
                 creativeEffect={{
@@ -26,7 +26,7 @@ const SwiperGallery = ({ data }) => {
                     },
                 }}
                 modules={[Pagination, Navigation, A11y, EffectCreative]}
-                slidesPerView={1.25}
+                slidesPerView={1.15}
                 lazy
                 spaceBetween={"8px"}
                 pagination={{ clickable: true, dynamicBullets: true }}
@@ -43,15 +43,11 @@ const SwiperGallery = ({ data }) => {
                         <div
                             className={`transition-all duration-500 ${
                                 activeIndex === i
-                                    ? "aspect-ratio-16/24 transform scale-105"
-                                    : "aspect-ratio-16/12 transform scale-100"
+                                    ? "aspect-ratio-16/9 transform scale-105"
+                                    : "aspect-ratio-16/6 transform scale-100"
                             }`}
                         >
-                            <BasicElement
-                                aspectRatio={activeIndex === i ? "16/24" : "16/18"}
-                                image={e}
-                                mobileImage={e}
-                            />
+                            <BasicElement aspectRatio={activeIndex === i ? "16/9" : "16/6"} image={e} mobileImage={e} />
                         </div>
                     </SwiperSlide>
                 ))}
