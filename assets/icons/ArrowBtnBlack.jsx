@@ -1,0 +1,13 @@
+import React from "react";
+
+const ArrowButton = ({ backgroundColor = "#E9E8E3", arrowColor = "#393836", width = "38", height = "38" }) => (
+    <svg width={width} height={height} viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="38" height="38" rx="5" fill={backgroundColor} />
+        <path
+            d="M28 19L20.5 11.5L19.4425 12.5575L25.1275 18.25L10 18.25L10 19.75L25.1275 19.75L19.4425 25.4425L20.5 26.5L28 19Z"
+            fill={arrowColor}
+        />
+    </svg>
+);
+
+export default ArrowButton;

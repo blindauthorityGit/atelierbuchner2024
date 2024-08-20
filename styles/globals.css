@@ -44,6 +44,12 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
+/* Custom scrollbar for Swiper */
+.swiper-scrollbar {
+  width: 83% !important;
+}
+
+
  [data-scroll] {
   transition: transform 0.8s ease-out;
 }

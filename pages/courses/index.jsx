@@ -9,16 +9,17 @@ import GradientDiv from "../../components/layout/gradientDiv";
 import IntroText from "../../sections/introText";
 import HighlightText from "../../sections/highlightText";
 import SwiperGallery from "../../sections/swiperGallery";
+import FAQs from "../../sections/faqs";
 
 //LAYOUT
 import MainContainer from "../../components/layout/mainContainer";
 
 //ASSETS
 //ASSETS
-import Bild1 from "../../assets/test/akadamie/1.JPG";
-import Bild2 from "../../assets/test/akadamie/2.JPG";
-import Bild3 from "../../assets/test/akadamie/3.JPG";
-import Bild4 from "../../assets/test/akadamie/4.JPG";
+import Bild1 from "../../assets/test/kurs/1.JPG";
+import Bild2 from "../../assets/test/kurs/2.JPG";
+import Bild3 from "../../assets/test/kurs/3.JPG";
+import Bild4 from "../../assets/test/kurs/4.JPG";
 
 export default function Courses() {
     // const containerRef = useRef(null);
@@ -51,7 +52,10 @@ export default function Courses() {
             <div className="bg-primaryColor-50 w-full relative z-20">
                 <MainContainer klasse="bg-primaryColor-50">
                     <CoursesOverview noBtn />
+                    {/* <div className="lg:h-24"></div> */}
+                    <FAQs></FAQs>
                     <SwiperGallery data={bilder2}></SwiperGallery>
+                    <IntroText></IntroText>
                 </MainContainer>
             </div>
         </>

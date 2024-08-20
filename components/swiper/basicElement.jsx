@@ -8,7 +8,7 @@ const BasicElement = ({ image, mobileImage, aspectRatio }) => {
                 src={image.src}
                 mobileSrc={mobileImage.src}
                 alt="Cover Background"
-                klasse={"absolute "}
+                klasse={" "}
                 style={{ aspectRatio: aspectRatio }}
                 className="w-full transition-all duration-200"
             />

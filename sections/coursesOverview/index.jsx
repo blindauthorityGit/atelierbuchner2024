@@ -43,6 +43,15 @@ const CoursesOverview = ({ noBtn }) => {
 
     const [data, setDate] = useState([Hero2, Hero3, Hero4, Hero5]);
 
+    const { width } = useDimension();
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(width <= 420);
+        console.log(width <= 420);
+    }, [width]);
+
     const handleHoverStart = (index) => {
         setHoveredIndex(index);
     };
@@ -112,8 +121,29 @@ const CoursesOverview = ({ noBtn }) => {
                     </P>
                 </div>
                 <div className="lg:px-24 grid grid-cols-12 col-span-12 lg:gap-8 z-10 bg-primaryColor-50">
-                    {data.map((e, i) => {
-                        return (
+                    {data.map((e, i) =>
+                        isMobile ? (
+                            // Render without animation on mobile
+                            <div key={i} className="col-span-12 lg:col-span-3 z-10 mb-8 lg:mb-0">
+                                <CatCard
+                                    klasse="col-span-12 z-10 !h-[30svh] 2xl:!h-[42svh]"
+                                    title="TEST"
+                                    subline="test"
+                                    image={e.src}
+                                />
+                                <H3 klasse="!mb-0 mt-2 lg:mt-4">Sommerakademie</H3>
+                                <div className="w-full">
+                                    <div className="left">
+                                        <P klasse="font-bold">01.-05.02.2024</P>
+                                    </div>
+                                    <div className="right mt-2">
+                                        <P>Faszination Pigmente</P>
+                                    </div>
+                                    <TextButton link="">Infos & Anmeldung</TextButton>
+                                </div>
+                            </div>
+                        ) : (
+                            // Use motion.div for animations on larger screens
                             <motion.div
                                 key={i}
                                 initial="hidden"
@@ -123,24 +153,15 @@ const CoursesOverview = ({ noBtn }) => {
                                 className="col-span-12 lg:col-span-3 z-10 mb-8 lg:mb-0"
                             >
                                 <CatCard
-                                    // data-scroll
-                                    // data-scroll-speed={i + 2}
-                                    klasse="col-span-12 z-10 !h-[33svh] 2xl:!h-[42svh]"
+                                    klasse="col-span-12 z-10 !h-[30svh] 2xl:!h-[42svh]"
                                     title="TEST"
                                     subline="test"
                                     image={e.src}
-                                    // onHoverStart={() => handleHoverStart(i)}
-                                    // onHoverEnd={handleHoverEnd}
-                                    // animate={{
-                                    //     scale: hoveredIndex === i ? 1.1 : hoveredIndex === null ? 1 : 0.9,
-                                    //     filter: hoveredIndex === null || hoveredIndex === i ? "none" : "blur(4px)",
-                                    // }}
-                                    // transition={{ duration: 0.3 }}
-                                ></CatCard>
+                                />
                                 <H3 klasse="!mb-0 mt-2 lg:mt-4">Sommerakademie</H3>
-                                <div className=" w-full">
+                                <div className="w-full">
                                     <div className="left">
-                                        <P klasse="font-bold">01.-05.02.2024</P>{" "}
+                                        <P klasse="font-bold">01.-05.02.2024</P>
                                     </div>
                                     <div className="right mt-2">
                                         <P>Faszination Pigmente</P>
@@ -148,8 +169,8 @@ const CoursesOverview = ({ noBtn }) => {
                                     <TextButton link="">Infos & Anmeldung</TextButton>
                                 </div>
                             </motion.div>
-                        );
-                    })}
+                        )
+                    )}
                 </div>
                 {noBtn ? null : (
                     <div className="col-span-12 flex justify-center">

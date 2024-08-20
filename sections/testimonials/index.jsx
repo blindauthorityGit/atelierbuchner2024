@@ -19,7 +19,7 @@ import ArrowBtn from "../../assets/icons/arrowButton.svg";
 //HOOKS
 import useDimension from "../../hooks/useDimension";
 
-const SwiperGallery = ({ data }) => {
+const Testimonials = ({ data }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const swiperRef = useRef(null); // Create a ref to store the Swiper instance
     const { width, height } = useDimension();
@@ -127,4 +127,4 @@ const SwiperGallery = ({ data }) => {
     );
 };
 
-export default SwiperGallery;
+export default Testimonials;
