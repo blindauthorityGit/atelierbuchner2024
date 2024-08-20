@@ -51,7 +51,7 @@ const SwiperGallery = ({ data }) => {
     }, []);
 
     return (
-        <SectionContainer klasse="lg:gap-8 mb-36 px-4 relative">
+        <SectionContainer klasse="lg:gap-8 lg:mb-36 px-4 relative">
             <Swiper
                 effect={"creative"}
                 creativeEffect={{

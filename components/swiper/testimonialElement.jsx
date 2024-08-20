@@ -1,23 +1,28 @@
 import React from "react";
 import { CoverImage } from "../images";
+import { motion } from "framer-motion";
 
-const TestimonialElement = ({ image, mobileImage, text }) => {
+import { P, H3 } from "../typography";
+
+import Quotes from "../../assets/icons/quotes.svg";
+
+const TestimonialElement = ({ image, mobileImage, text, name, headline }) => {
     return (
-        <div>
+        <>
             <div className="hidden lg:block lg:col-span-1"></div>
             <motion.div
-                className="col-span-12 lg:col-span-7 pt-16 h-auto z-10 xl:pr-8 relative xl:pl-36"
+                className="col-span-12 lg:col-span-6 pt-16 h-auto z-10 xl:pr-8 relative "
                 initial="hidden"
                 whileInView="visible"
-                variants={slideInFromLeft(0.2)}
+                // variants={slideInFromLeft(0.2)}
                 viewport={{ once: true }}
             >
-                <div className="mix-blend-multiply opacity-70">
+                <div className="mix-blend-multiply grayscale">
                     <motion.div
                         className=" h-auto z-10 relative opacity-80"
                         initial="hidden"
                         whileInView="visible"
-                        variants={slideInFromLeft(0.2)}
+                        // variants={slideInFromLeft(0.2)}
                         viewport={{ once: true }}
                     >
                         <CoverImage
@@ -31,8 +36,15 @@ const TestimonialElement = ({ image, mobileImage, text }) => {
                     </motion.div>
                 </div>
             </motion.div>
-            <div className="col-span-12 lg:col-span-4 pt-4 flex flex-col justify-center">{text}</div>
-        </div>
+            <div className="col-span-12  lg:col-span-5 pt-4 flex flex-col justify-center lg:pl-24">
+                <div className="relative">
+                    <H3>{headline}</H3>
+                    <P>{text}</P>
+                    <P klasse="font-bold mt-6">{name}</P>
+                    <img className="absolute top-0 left-[-4rem]" src={Quotes.src} alt="" />
+                </div>
+            </div>
+        </>
     );
 };
 

@@ -10,11 +10,12 @@ import IntroText from "../../sections/introText";
 import HighlightText from "../../sections/highlightText";
 import SwiperGallery from "../../sections/swiperGallery";
 import FAQs from "../../sections/faqs";
+import Testimonials from "../../sections/testimonials";
+import Newsletter from "../../sections/newsletter";
 
 //LAYOUT
 import MainContainer from "../../components/layout/mainContainer";
 
-//ASSETS
 //ASSETS
 import Bild1 from "../../assets/test/kurs/1.jpg";
 import Bild2 from "../../assets/test/kurs/2.jpg";
@@ -55,8 +56,13 @@ export default function Courses() {
                     {/* <div className="lg:h-24"></div> */}
                     <FAQs></FAQs>
                     <SwiperGallery data={bilder2}></SwiperGallery>
-                    <IntroText></IntroText>
+                    <Testimonials></Testimonials>
                 </MainContainer>
+            </div>
+            <div className="bg-primaryColor-200 w-full relative z-20">
+                <div className="bg-primaryColor-200 w-full container mx-auto">
+                    <Newsletter></Newsletter>
+                </div>
             </div>
         </>
     );
