@@ -132,9 +132,9 @@ const Testimonials = ({}) => {
                         },
                     }}
                     modules={[Pagination, Navigation, A11y, EffectCreative, Scrollbar]}
-                    slidesPerView={1.15}
+                    slidesPerView={1}
                     lazy
-                    spaceBetween={"32px"}
+                    // spaceBetween={"32px"}
                     // pagination={{ clickable: true, dynamicBullets: true }}
                     scrollbar={{ draggable: true }}
                     onSwiper={(swiper) => setActiveIndex(swiper.activeIndex)}
