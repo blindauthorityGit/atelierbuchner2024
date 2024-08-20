@@ -16,10 +16,10 @@ import MainContainer from "../../components/layout/mainContainer";
 
 //ASSETS
 //ASSETS
-import Bild1 from "../../assets/test/kurs/1.JPG";
-import Bild2 from "../../assets/test/kurs/2.JPG";
-import Bild3 from "../../assets/test/kurs/3.JPG";
-import Bild4 from "../../assets/test/kurs/4.JPG";
+import Bild1 from "../../assets/test/kurs/1.jpg";
+import Bild2 from "../../assets/test/kurs/2.jpg";
+import Bild3 from "../../assets/test/kurs/3.jpg";
+import Bild4 from "../../assets/test/kurs/4.jpg";
 
 export default function Courses() {
     // const containerRef = useRef(null);

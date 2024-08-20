@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import SectionContainer from "../../components/layout/sectionContainer";
-import { BasicElement } from "../../components/swiper";
+import { TestimonialElement } from "../../components/swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y, Navigation, Scrollbar } from "swiper";
 import { EffectCreative } from "swiper";
@@ -89,19 +89,7 @@ const Testimonials = ({ data }) => {
                                     : "aspect-ratio-16/6 transform scale-100 opacity-0 grayscale"
                             }`}
                         >
-                            <BasicElement
-                                aspectRatio={
-                                    isMobile
-                                        ? activeIndex === i
-                                            ? "9/12"
-                                            : "12/9" // For screens <= 420px width
-                                        : activeIndex === i
-                                        ? "16/9"
-                                        : "16/6" // For screens > 420px width
-                                }
-                                image={e}
-                                mobileImage={e}
-                            />
+                            <TestimonialElement></TestimonialElement>
                         </div>
                     </SwiperSlide>
                 ))}
