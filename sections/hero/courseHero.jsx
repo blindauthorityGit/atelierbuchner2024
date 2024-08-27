@@ -160,7 +160,7 @@ const CourseHero = () => {
                             // transform: ` scale(${scaleValue})`,
                             filter: `grayscale(${greyscaleValue}) blur(${blurValue}px)`,
                         }}
-                        className="top-[3.58svh] hidden lg:block mix-blend-multiply absolute opacity-50 xl:top-auto xl:bottom-[7svh] h-[80svh] xl:h-auto  xl:left-[-2svw]  z-20 xl:z-0  "
+                        className="top-[3.58svh] hidden lg:block mix-blend-multiply absolute opacity-50 xl:top-auto xl:bottom-[6.5svh] h-[80svh] xl:h-auto  xl:left-[-2svw]  z-20 xl:z-0  "
                     >
                         <div className="relative">
                             <div className="w-full lg:hidden block h-full absolute z-20 bg-gradient-to-t from-darkGrey via-transparent to-transparent"></div>

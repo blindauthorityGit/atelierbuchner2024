@@ -114,12 +114,16 @@ const MainHeroSection = () => {
     const scaleValue = 1 + Math.min(scrollY / 5000, 0.05); // Adjust the divisor and max value for scaling
     const translateXValue = -Math.min(scrollY / 2, 500); // Adjust the divisor and max value for sliding out
     const fadeOutValue = 1 - Math.min(scrollY / 1000, 1); // Adjust the divisor to control the opacity
+    const brightnessValue = 1 - Math.min(scrollY / 1000, 1); // Adjust the divisor to control the opacity
 
     return (
         <>
             <SectionContainer
                 klasse="md:grid-rows-none grid-rows-[auto_1fr] smooth-content !bg-primaryColor-100"
                 fullHeight
+                // style={{
+                //     filter: `brightness(${brightnessValue})`,
+                // }}
             >
                 <div className="col-span-12 lg:col-span-4 lg:order-first  2xl:pl-28">
                     <div
@@ -179,11 +183,17 @@ const MainHeroSection = () => {
                     <Parallax
                         speed={1.2}
                         style={{
-                            width: width <= 420 ? width + "px" : width * 0.5625 + "px",
+                            width:
+                                width <= 420
+                                    ? width + "px"
+                                    : width >= 1921
+                                    ? width * 0.4525 + "px"
+                                    : width * 0.5625 + "px",
+                            height: height <= 480 ? height + "px" : height * 0.9355 + "px",
                             // transform: ` scale(${scaleValue})`,
                             filter: `grayscale(${greyscaleValue}) blur(${blurValue}px)`,
                         }}
-                        className="top-[3.58svh] h-[80svh] xl:h-auto  xl:left-auto fixed z-20 xl:z-0 xl:top-[-16.42svh] "
+                        className="top-[3.58svh] h-[80svh] xl:h-auto  xl:left-auto fixed z-20 xl:z-0 xl:top-[-4.42svh] "
                     >
                         <Swiper
                             // install Swiper modules

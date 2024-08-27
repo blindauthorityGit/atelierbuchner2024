@@ -17,7 +17,7 @@ const H2 = React.forwardRef(({ children, klasse }, ref) => {
     return (
         <h2
             ref={ref}
-            className={`text-4xl tracking-tight font-body text-textColor md:text-3xl font-black  lg:text-2xl xl:text-3xl 2xl:text-6xl mb-4 lg:mb-10   ${klasse}`}
+            className={`text-4xl tracking-tight font-body text-darkGrey md:text-3xl font-black  lg:text-2xl xl:text-3xl 2xl:text-6xl mb-4 lg:mb-10   ${klasse}`}
         >
             {children}
         </h2>
@@ -28,7 +28,7 @@ const H3 = React.forwardRef(({ children, klasse, style }, ref) => {
     return (
         <h3
             ref={ref}
-            className={`text-2xl xl:text-xl 2xl:text-3xl 2xl:mb-8 font-bold font-body font-ueber text-textColor ${klasse}`}
+            className={`text-2xl xl:text-xl 2xl:text-3xl 2xl:mb-8 font-bold font-body font-ueber text-darkGrey ${klasse}`}
             style={style}
         >
             {children}

@@ -25,7 +25,7 @@ module.exports = {
                     xl: "1240px",
                     "2xl": "1496px",
                     "3xl": "1680px", // Custom size for the new breakpoint
-                    "4xl": "2000px", // Custom size for the new breakpoint
+                    // "4xl": "2000px", // Custom size for the new breakpoint
                 },
             },
             fontFamily: {

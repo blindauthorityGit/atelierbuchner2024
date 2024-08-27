@@ -3,9 +3,10 @@ import React, { useState, useRef, useEffect } from "react";
 //COMPS
 import SectionContainer from "../../components/layout/sectionContainer";
 import { CoverImage } from "../../components/images";
+import { Modal } from "../../components/modal";
 
 //TYPO
-import { H1, H2, P } from "../../components/typography";
+import { H1, H2, H3, P } from "../../components/typography";
 
 // ANIMATION
 import { motion } from "framer-motion";
@@ -28,31 +29,38 @@ import useDimension from "../../hooks/useDimension";
 import ParallaxElement from "../../animations/parallax/parallaxElement";
 
 const Gallery = ({ images }) => {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imagePosition, setImagePosition] = useState({});
+    const imageRef = useRef(null);
 
-    const handleHoverStart = (index) => {
-        setHoveredIndex(index);
+    const openModal = (image, index) => {
+        const rect = imageRef.current.getBoundingClientRect();
+        setImagePosition(rect);
+        setSelectedImage(image);
+        setIsModalOpen(true);
     };
 
-    const handleHoverEnd = () => {
-        setHoveredIndex(null);
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedImage(null);
     };
 
-    const parallaxRef2 = useRef(null);
+    const parallaxRef7 = useRef(null);
 
     useEffect(() => {
         // Ensure initial transform is set to neutral
-        gsap.set(parallaxRef2.current, { y: 0 });
+        gsap.set(parallaxRef7.current, { y: 0 });
 
         const setupParallax = () => {
             gsap.fromTo(
-                parallaxRef2.current,
+                parallaxRef7.current,
                 { y: 0 },
                 {
                     y: "-50%",
                     ease: "none",
                     scrollTrigger: {
-                        trigger: parallaxRef2.current,
+                        trigger: parallaxRef7.current,
                         start: "top bottom",
                         end: "bottom top",
                         scrub: true,
@@ -73,57 +81,95 @@ const Gallery = ({ images }) => {
         };
     }, []);
 
-    // Split the images into three parts
-    const columnCount = 4;
-    const columns = Array.from({ length: columnCount }, (_, index) =>
-        images.filter((_, imageIndex) => imageIndex % columnCount === index)
-    );
-
     return (
         <>
-            <SectionContainer klasse="gap-8 grid-rows-[auto_1fr] py-36" fullHeight>
-                <div className="col-span-12  lg:order-first">
-                    <div className=" px-4 lg:px-0 bottom-[18.12svh] top-auto 3xl:top-[48svh] z-10">
-                        <H1>
-                            King-of-Saxony
-                            <br />
-                            Bird-of-Paradise
-                        </H1>
+            <SectionContainer klasse="gap-8 grid-rows-[auto_1fr] py-20 lg:py-36" fullHeight>
+                <div className="col-span-12 lg:col-span-6 lg:order-first relative">
+                    <div className="px-4 lg:px-16 bottom-[18.12svh] top-auto 3xl:top-[48svh] z-30">
+                        <H1 klasse="z-20 relative">Galerie</H1>
                     </div>
+                    <div
+                        ref={parallaxRef7}
+                        className="bg-primaryColor-100 z-0 absolute top-[5svh] left-[20svw] w-[40svw] h-[25svh] 3xl:w-[10.83svw] 3xl:h-[25svh] 3xl:left-[0] 3xl:top-[13svh]"
+                    ></div>
                 </div>
-                <div className="grid col-span-12 grid-cols-12 px-2 lg:px-16 lg:gap-16 ">
-                    {columns.map((column, columnIndex) => (
-                        <Parallax speed={1 * columnIndex + 2} key={columnIndex} className="col-span-12 md:col-span-4">
-                            {column.map((image, index) => (
-                                <motion.div
-                                    key={index}
-                                    className={`parallax-item`}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: index * 0.2 }}
-                                >
-                                    <CoverImage
-                                        src={urlFor(image.image).url()} // Replace with the actual path to your image
-                                        mobileSrc={urlFor(image.image).url()} // Replace with the actual path to your image
-                                        alt="Cover Background"
-                                        style={{ aspectRatio: image.aspect_ratio?.split("_").join("/") }}
-                                        className={`w-full z-20  lg:block relative mb-2 lg:mb-8 overflow-hidden `}
-                                        // className={`w-full z-20  lg:block relative mb-8 overflow-hidden aspect-[1/0.73] md:aspect-[1/0.7] 2xl:aspect-[1/1]`}
-                                        // data-aos={"fade-left"}
-
-                                        priority={true}
-                                    />
-                                    <img src={image.url} alt={image.alt} className="w-full h-auto" />
-                                </motion.div>
-                            ))}
-                        </Parallax>
+                <div className="grid col-span-12 grid-cols-12 px-2 lg:px-16 gap-6 lg:gap-16">
+                    {images.map((image, index) => (
+                        <div className="col-span-12 lg:col-span-4" key={index}>
+                            <motion.div
+                                className={`parallax-item`}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)",
+                                }}
+                                whileTap={{
+                                    scale: 0.95,
+                                    transition: { duration: 0.1 },
+                                }}
+                                onClick={() => openModal(image, index)}
+                                ref={imageRef}
+                            >
+                                <CoverImage
+                                    src={urlFor(image.image).url()}
+                                    mobileSrc={urlFor(image.image).url()}
+                                    alt="Cover Background"
+                                    className={`w-full z-20 aspect-[4/3] lg:aspect-[4/4] block relative mb-2 lg:mb-8 overflow-hidden`}
+                                    priority={true}
+                                />
+                            </motion.div>
+                            <H3 klasse="!mb-0 mt-2 lg:mt-4">{image.titel_Bild}</H3>
+                            <P className="mt-2">
+                                {image.technik} | {image.dimensions} <br /> {image.year}
+                            </P>
+                        </div>
                     ))}
                 </div>
             </SectionContainer>
+
+            {isModalOpen && selectedImage && (
+                <Modal onClose={closeModal}>
+                    <motion.div
+                        initial={{
+                            top: imagePosition.top,
+                            left: imagePosition.left,
+                            width: imagePosition.width,
+                            height: imagePosition.height,
+                        }}
+                        animate={{
+                            top: "50%",
+                            left: "50%",
+                            width: "90vw", // Adjust as needed
+                            height: "auto",
+                            x: "-50%",
+                            y: "-50%",
+                        }}
+                        transition={{ duration: 0.6, ease: [0.6, -0.05, 0.01, 0.99] }}
+                        className="fixed z-50"
+                    >
+                        <CoverImage
+                            src={urlFor(selectedImage.image).url()}
+                            mobileSrc={urlFor(selectedImage.image).url()}
+                            alt="Cover Background"
+                            className="w-full h-full object-cover aspect-[1/1]"
+                            priority={true}
+                        />
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.6, duration: 0.3 }}
+                        className="modal-content"
+                    >
+                        {/* Add other modal content here */}
+                        <button onClick={closeModal}>Close</button>
+                    </motion.div>
+                </Modal>
+            )}
         </>
     );
 };
 
 export default Gallery;
-
 // data-scroll data-scroll-speed="3"

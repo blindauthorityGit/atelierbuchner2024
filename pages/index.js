@@ -25,6 +25,7 @@ export default function Home() {
                 </MainContainer>{" "}
             </div>
             {/* <GradientDiv /> */}
+            <div id="dark-mode-trigger"></div>
             <div className="block h-48 bg-primaryColor-100"></div>
             <div className="bg-primaryColor-50 w-full relative z-20">
                 <div className="bg-primaryColor-50 w-full container mx-auto">

@@ -1,5 +1,5 @@
 // components/Menu.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -14,11 +14,38 @@ const Menu = ({ logo, logoWhite, links, ctas, burgerMenu, burgerClick, ...props 
     };
 
     const isDark = useStore((state) => state.isDark);
+    const setIsDark = useStore((state) => state.setIsDark); // Assume this action exists
+
+    useEffect(() => {
+        const targetElement = document.getElementById("dark-mode-trigger");
+
+        if (targetElement) {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (!entry.isIntersecting) {
+                        console.log("EGUGE");
+                        setIsDark(true); // Switch to dark mode when the div is in view
+                    } else {
+                        console.log("EGUGE");
+
+                        setIsDark(false); // Switch to light mode when the div is out of view
+                    }
+                },
+                { threshold: 0.5 } // Adjust the threshold as needed
+            );
+
+            observer.observe(targetElement);
+
+            return () => {
+                observer.unobserve(targetElement); // Cleanup observer on component unmount
+            };
+        }
+    }, [setIsDark]);
 
     // Animation variants for light and dark modes
     const variants = {
         light: {
-            backgroundColor: "#f7f7f5", // Light mode background color
+            backgroundColor: "transparent", // Light mode background color
             color: "#000000", // Light mode text color
             transition: { duration: 0.5 },
         },
@@ -57,7 +84,7 @@ const Menu = ({ logo, logoWhite, links, ctas, burgerMenu, burgerClick, ...props 
                     <div className="flex justify-center space-x-6">
                         {links.map((link, index) => (
                             <Link href={link.href} key={index} passHref>
-                                <div className="text-lg font-semibold tracking-wider cursor-pointer">{link.text}</div>
+                                <div className=" font-thin tracking-wider cursor-pointer">{link.text}</div>
                             </Link>
                         ))}
                     </div>

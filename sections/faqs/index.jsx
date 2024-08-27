@@ -98,7 +98,7 @@ const FAQSection = ({ klasse }) => {
 
     return (
         <>
-            <SectionContainer klasse={`gap-4 xl:gap-12 relative ${klasse}  px-4 py-12 lg:py-36`}>
+            <SectionContainer klasse={`gap-4 xl:gap-12 relative ${klasse}  px-4 py-12 lg:pb-36 lg:pt-12`}>
                 <div className="hidden lg:block lg:col-span-1"></div>
                 <motion.div
                     className="col-span-12 lg:col-span-7 pt-16 h-auto z-10 xl:pr-8 relative xl:pl-36"
@@ -116,7 +116,7 @@ const FAQSection = ({ klasse }) => {
                 </div>
                 <div
                     ref={parallaxRef5}
-                    className="bg-primaryColor-100 absolute top-[12svh] left-[20svw] w-[40svw] h-[25svh] 3xl:w-[10.83svw] 3xl:h-[15svh] 3xl:left-[0] 3xl:top-[22svh]"
+                    className="bg-primaryColor-100 absolute top-[12svh] left-[20svw] w-[40svw] h-[25svh] 3xl:w-[10.83svw] 3xl:h-[15svh] 3xl:left-[0] 3xl:top-[8svh]"
                 ></div>
             </SectionContainer>
         </>

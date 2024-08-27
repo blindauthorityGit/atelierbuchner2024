@@ -4,7 +4,7 @@ import useStore from "../store/store"; // Import the Zustand store
 import { Menu } from "../components/menu";
 import MenuConfig from "../config/menu";
 import AnimatedCursor from "react-animated-cursor";
-import { ModalMenu } from "../components/modal";
+import { ModalMenu, Modal, Overlay } from "../components/modal";
 import { MenuModal } from "../components/modalContent";
 import TransitionLayout from "../animations/transitionLayout/";
 import Footer from "../sections/footer";
@@ -65,6 +65,23 @@ export default function App({ Component, pageProps }) {
         <>
             {" "}
             {isModalOpen && (
+                <>
+                    <Modal
+                        onClose={() => {
+                            setIsModalOpen(false);
+                        }}
+                        isOpen={true}
+                    >
+                        "bubu"
+                    </Modal>
+                    <Overlay
+                        onClose={() => {
+                            setIsModalOpen(false);
+                        }}
+                    ></Overlay>
+                </>
+            )}
+            {/* {isModalOpen && (
                 <ModalMenu
                     onClose={() => {
                         setIsModalOpen(false);
@@ -73,7 +90,7 @@ export default function App({ Component, pageProps }) {
                 >
                     <MenuModal></MenuModal>
                 </ModalMenu>
-            )}
+            )} */}
             <Menu
                 logo={MenuConfig.logo}
                 logoWhite={MenuConfig.logoWhite}

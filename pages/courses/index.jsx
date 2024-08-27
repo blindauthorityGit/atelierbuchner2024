@@ -39,6 +39,8 @@ export default function Courses() {
                 </MainContainer>{" "}
             </div>
             {/* <GradientDiv /> */}
+            <div id="dark-mode-trigger"></div>
+
             <div className="block h-20 lg:h-48 bg-primaryColor-100"></div>
             <div className="bg-primaryColor-50 w-full relative z-20">
                 <div className="bg-primaryColor-50 w-full container mx-auto">

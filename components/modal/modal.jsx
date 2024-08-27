@@ -22,8 +22,8 @@ const Modal = (props) => {
     };
 
     const closeModal = () => {
-        props.onClick(); // Assuming this is your method to close the modal
-        resetModalHeight(); // Reset the isFullHeightModal state to false
+        props.onClose(); // Assuming this is your method to close the modal
+        // resetModalHeight(); // Reset the isFullHeightModal state to false
     };
 
     const modalClassNames = `w-full flex flex-col relative rounded-xl transition-colors duration-500 max-w-[98%] min-h-[90%] lg:h-auto 2xl:min-h-[66%] lg:max-w-[80%] 2xl:max-w-[60%] lg:max-h-full bg-white py-6 px-6 md:p-12 lg:p-12 xl:p-16 overflow-y-auto ${
