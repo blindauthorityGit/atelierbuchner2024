@@ -15,6 +15,12 @@ const useStore = create((set) => ({
     isDark: false,
     setIsDark: (show) => set({ isDark: show }),
 
+    isModalOpen: false,
+    setIsModalOpen: (show) => set({ isModalOpen: show }),
+
+    modalContent: null,
+    setModalContent: (content) => set({ modalContent: content }),
+
     formData: {},
     setFormData: (data) => set((state) => ({ formData: { ...state.formData, ...data } })),
 }));

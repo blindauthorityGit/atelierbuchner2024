@@ -193,7 +193,7 @@ const MainHeroSection = () => {
                             // transform: ` scale(${scaleValue})`,
                             filter: `grayscale(${greyscaleValue}) blur(${blurValue}px)`,
                         }}
-                        className="top-[3.58svh] h-[80svh] xl:h-auto  xl:left-auto fixed z-20 xl:z-0 xl:top-[-4.42svh] "
+                        className="top-[3.58svh] h-[80svh]   xl:left-auto fixed z-20 xl:z-0 xl:top-[-4.42svh] "
                     >
                         <Swiper
                             // install Swiper modules

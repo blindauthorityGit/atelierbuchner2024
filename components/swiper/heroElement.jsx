@@ -4,7 +4,7 @@ import { CoverImage } from "../images";
 const HeroElement = ({ image, mobileImage, aspectRatio }) => {
     return (
         <div className="relative">
-            <div className="w-full lg:hidden block absolute z-20 opacity-100 bg-gradient-to-t from-darkGrey via-transparent to-transparent"></div>
+            <div className="w-full  block absolute z-20 opacity-100 bg-gradient-to-t from-darkGrey via-transparent to-transparent"></div>
             <CoverImage
                 src={image.src}
                 mobileSrc={mobileImage.src}

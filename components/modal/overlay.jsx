@@ -1,11 +1,15 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-const Overlay = (props) => {
+const Overlay = ({ onClose }) => {
     return (
-        <div
-            className={`${props.klasse} w-full h-screen fixed bg-black opacity-70 z-40 top-0`}
-            onClick={props.onClose}
-        ></div>
+        <motion.div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={onClose}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.8 }}
+            exit={{ opacity: 0, transition: { duration: 0.3 } }} // Ensure this matches the modal exit duration
+        />
     );
 };
 

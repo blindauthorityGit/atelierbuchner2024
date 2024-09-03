@@ -1,6 +1,5 @@
 import "/styles/globals.css";
 import { useState, useRef, useEffect } from "react";
-import useStore from "../store/store"; // Import the Zustand store
 import { Menu } from "../components/menu";
 import MenuConfig from "../config/menu";
 import AnimatedCursor from "react-animated-cursor";
@@ -10,6 +9,7 @@ import TransitionLayout from "../animations/transitionLayout/";
 import Footer from "../sections/footer";
 
 import { gsap } from "gsap";
+import { AnimatePresence } from "framer-motion";
 
 //LIBS
 import { ReactLenis, useLenis } from "../libs/lenis";
@@ -19,19 +19,14 @@ import useScrollToTop from "../hooks/useScrollToTop"; // Adjust the path accordi
 import useLenisScrollToTop from "../hooks/useLenisScrollToTop"; // Adjust the path according to your project structure
 import { usePathname } from "next/navigation";
 
+//STORE
+import useStore from "../store/store";
+
 export default function App({ Component, pageProps }) {
-    // const containerRef = useRef(null);
-    // const { scrollY } = useLocomotiveScroll(containerRef);
-    // const setScrollY = useStore((state) => state.setScrollY);
+    const isModalOpen = useStore((state) => state.isModalOpen);
+    const setIsModalOpen = useStore((state) => state.setIsModalOpen);
+    const modalContent = useStore((state) => state.modalContent);
 
-    // useEffect(() => {
-    //     console.log("Scroll container ref:", containerRef.current);
-    //     scrollY.onChange((value) => {
-    //         setScrollY(value);
-    //     });
-    // }, [containerRef, scrollY, setScrollY]);
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
     useScrollToTop();
     const pathname = usePathname();
 
@@ -63,24 +58,25 @@ export default function App({ Component, pageProps }) {
 
     return (
         <>
-            {" "}
-            {isModalOpen && (
-                <>
-                    <Modal
-                        onClose={() => {
-                            setIsModalOpen(false);
-                        }}
-                        isOpen={true}
-                    >
-                        "bubu"
-                    </Modal>
-                    <Overlay
-                        onClose={() => {
-                            setIsModalOpen(false);
-                        }}
-                    ></Overlay>
-                </>
-            )}
+            <AnimatePresence>
+                {isModalOpen && (
+                    <>
+                        <Modal
+                            onClose={() => {
+                                setIsModalOpen(false);
+                            }}
+                            isOpen={true}
+                        >
+                            {modalContent}
+                        </Modal>
+                        <Overlay
+                            onClose={() => {
+                                setIsModalOpen(false);
+                            }}
+                        ></Overlay>
+                    </>
+                )}
+            </AnimatePresence>
             {/* {isModalOpen && (
                 <ModalMenu
                     onClose={() => {
