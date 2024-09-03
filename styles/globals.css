@@ -46,7 +46,7 @@ body {
 
 /* Custom scrollbar for Swiper */
 .swiper-scrollbar {
-  width: 83% !important;
+  /* width: 83% !important; */
 }
 
 
