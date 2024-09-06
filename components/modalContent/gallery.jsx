@@ -28,6 +28,7 @@ const GalleryModal = ({ data, image, index }) => {
 
     const [swiper, setSwiper] = useState(null);
     const [currentSlideData, setCurrentSlideData] = useState(data[index] || {});
+    const [isSwiperReady, setIsSwiperReady] = useState(false); // New state to control rendering
 
     const [isLastSlideLeft, setIsLastSlideLeft] = useState(true);
     const [isLastSlideRight, setIsLastSlideRight] = useState(false);
@@ -36,6 +37,8 @@ const GalleryModal = ({ data, image, index }) => {
         if (swiper && index !== null) {
             swiper.slideTo(index, 0);
             setCurrentSlideData(data[index]); // Set initial slide data
+            setIsSwiperReady(true); // Ensure Swiper is ready before rendering the content
+
             // Jump to the selected slide immediately without transition
         }
     }, [swiper, index]);
@@ -51,6 +54,12 @@ const GalleryModal = ({ data, image, index }) => {
         exit: { opacity: 0, y: -10 },
     };
 
+    const imageVariants = {
+        hidden: { opacity: 0, scale: 0.95 },
+        visible: { opacity: 1, scale: 1 },
+        exit: { opacity: 0, scale: 0.95 },
+    };
+
     return (
         <div className="grid grid-cols-12 relative">
             <div className="col-span-12 left bg-primaryColor-0 m-[-1.5rem] py-6 ">
@@ -59,12 +68,9 @@ const GalleryModal = ({ data, image, index }) => {
                     modules={[Pagination, Navigation, A11y, Scrollbar]}
                     slidesPerView={1}
                     lazy
+                    initialSlide={index} // Set the correct initial slide on first render
                     // pagination={{ clickable: true, dynamicBullets: true }}
-                    onSwiper={(swiper) => {
-                        {
-                            setSwiper(swiper);
-                        }
-                    }}
+                    onSwiper={setSwiper}
                     scrollbar={{ draggable: true }}
                     onSlideChange={handleSlideChange}
                     className="h-full eventSlider"
@@ -88,13 +94,20 @@ const GalleryModal = ({ data, image, index }) => {
                         return (
                             <SwiperSlide key={`viewAllSlide${i}`} className="relative w-full h-full">
                                 <>
-                                    <div className="bg-primaryColor-0 p-2 h-[60svh] flex items-center w-full ">
+                                    <motion.div
+                                        className="bg-primaryColor-0 p-2 h-[60svh] flex items-center w-full"
+                                        initial="hidden"
+                                        animate="visible"
+                                        exit="exit"
+                                        variants={imageVariants}
+                                        transition={{ duration: 0.6, delay: 0.2, ease: "easeInOut" }} // Add delay for elegance
+                                    >
                                         <GalleryElement
                                             aspectRatio={e.aspect_ratio.replace("_", " / ")}
                                             image={urlFor(e.image).url()}
                                             mobileImage={urlFor(e.image).url()}
                                         ></GalleryElement>
-                                    </div>
+                                    </motion.div>
                                 </>
                             </SwiperSlide>
                         );
@@ -109,7 +122,7 @@ const GalleryModal = ({ data, image, index }) => {
                         animate="visible"
                         exit="exit"
                         variants={textVariants}
-                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                        transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
                     >
                         <H3 klasse="!mb-0 mt-2 lg:mt-4">{currentSlideData.titel_Bild}</H3>
                         <P klasse="mt-2">

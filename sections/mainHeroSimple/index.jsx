@@ -179,7 +179,7 @@ const MainHeroSection = () => {
                         </GhostButton>
                     </div>
                 </div>
-                <div className="col-span-12 lg:col-span-8 order-first lg:order-last px-[40px] lg:px-0 relative flex justify-end">
+                <div className="col-span-12 lg:col-span-8 order-first lg:order-last lg:px-0 relative flex justify-end">
                     <Parallax
                         speed={1.2}
                         style={{
