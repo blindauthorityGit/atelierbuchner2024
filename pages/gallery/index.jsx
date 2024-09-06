@@ -23,10 +23,8 @@ export default function Gallery({ data, lenisRef }) {
             <>
                 {" "}
                 {/* <SnapTest lenisRef={lenisRef}></SnapTest> */}
-                <MainContainer>
-                    {/* <HeroSection /> */}
-                    <GallerySection images={data.sort((a, b) => b.year - a.year)}></GallerySection>
-                </MainContainer>
+                {/* <HeroSection /> */}
+                <GallerySection images={data.sort((a, b) => b.year - a.year)}></GallerySection>
             </>
         </>
     );

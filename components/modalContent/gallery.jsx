@@ -53,11 +53,11 @@ const GalleryModal = ({ data, image, index }) => {
 
     return (
         <div className="grid grid-cols-12 relative">
-            <div className="col-span-12 left bg-primaryColor-0 m-[-1.5rem] p-6 ">
+            <div className="col-span-12 left bg-primaryColor-0 m-[-1.5rem] py-6 ">
                 <Swiper
                     // install Swiper modules
                     modules={[Pagination, Navigation, A11y, Scrollbar]}
-                    slidesPerView={1.05}
+                    slidesPerView={1}
                     lazy
                     // pagination={{ clickable: true, dynamicBullets: true }}
                     onSwiper={(swiper) => {
@@ -71,9 +71,18 @@ const GalleryModal = ({ data, image, index }) => {
                     // style={{ paddingBottom: "3.75rem!important" }}
                     breakpoints={{}}
                 >
-                    <div className="absolute z-10 bottom-8 right-8 flex space-x-4">
-                        <GeneralNavButton direction="left"></GeneralNavButton>
-                        <GeneralNavButton></GeneralNavButton>
+                    <div className="absolute z-10 w-full  top-[calc(50%-23px)]  flex justify-between">
+                        <GeneralNavButton
+                            direction="left"
+                            onClick={() => {
+                                swiper.slidePrev();
+                            }}
+                        ></GeneralNavButton>
+                        <GeneralNavButton
+                            onClick={() => {
+                                swiper.slideNext();
+                            }}
+                        ></GeneralNavButton>
                     </div>
                     {data.map((e, i) => {
                         return (
